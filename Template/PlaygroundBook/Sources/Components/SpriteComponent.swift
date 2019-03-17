@@ -8,9 +8,9 @@
 import SpriteKit
 import GameplayKit
 
-class SpriteComponent: GKComponent {
+public class SpriteComponent: GKComponent {
     
-    let node: SKNode
+    let node: SKSpriteNode
     
     init(textureName: String) {
         let texture = SKTexture(imageNamed: textureName)
@@ -19,12 +19,12 @@ class SpriteComponent: GKComponent {
         super.init()
     }
     
-    init(node: SKNode) {
+    init(node: SKSpriteNode) {
         self.node = node
         super.init()
     }
     
-    override func didAddToEntity() {
+    override public func didAddToEntity() {
         node.entity = entity
     }
     

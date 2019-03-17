@@ -28,6 +28,10 @@
 		774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA3B223D524B00671771 /* PhysicsComponent.swift */; };
 		774EEA43223D61D400671771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774EEA42223D61D400671771 /* Assets.xcassets */; };
 		774EEA44223D627A00671771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774EEA42223D61D400671771 /* Assets.xcassets */; };
+		774EEA46223D65EB00671771 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA45223D65EB00671771 /* Ball.swift */; };
+		774EEA6C223D8AF200671771 /* MoveAgentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6B223D8AF200671771 /* MoveAgentComponent.swift */; };
+		774EEA6F223D8B2700671771 /* CGPoint+vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6E223D8B2700671771 /* CGPoint+vector.swift */; };
+		774EEA71223D981A00671771 /* FollowAgentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA70223D981A00671771 /* FollowAgentComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -126,6 +130,10 @@
 		774EEA39223D50BE00671771 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		774EEA3B223D524B00671771 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		774EEA42223D61D400671771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		774EEA45223D65EB00671771 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		774EEA6B223D8AF200671771 /* MoveAgentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveAgentComponent.swift; sourceTree = "<group>"; };
+		774EEA6E223D8B2700671771 /* CGPoint+vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+vector.swift"; sourceTree = "<group>"; };
+		774EEA70223D981A00671771 /* FollowAgentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowAgentComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +274,7 @@
 		5EF2F9A22054BB3E00191409 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				774EEA6D223D8B0A00671771 /* Extensions */,
 				774EEA31223D492900671771 /* Components */,
 				774EEA30223D492200671771 /* Entities */,
 				774EEA36223D4F1300671771 /* Helpers */,
@@ -297,6 +306,7 @@
 			children = (
 				774EEA37223D4F8E00671771 /* InteractiveEntity.swift */,
 				774EEA34223D4EE600671771 /* Player.swift */,
+				774EEA45223D65EB00671771 /* Ball.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -306,6 +316,8 @@
 			children = (
 				774EEA32223D4E2B00671771 /* SpriteComponent.swift */,
 				774EEA3B223D524B00671771 /* PhysicsComponent.swift */,
+				774EEA6B223D8AF200671771 /* MoveAgentComponent.swift */,
+				774EEA70223D981A00671771 /* FollowAgentComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -316,6 +328,14 @@
 				774EEA39223D50BE00671771 /* EntityManager.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		774EEA6D223D8B0A00671771 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				774EEA6E223D8B2700671771 /* CGPoint+vector.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,12 +492,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774EEA6F223D8B2700671771 /* CGPoint+vector.swift in Sources */,
+				774EEA6C223D8AF200671771 /* MoveAgentComponent.swift in Sources */,
 				774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */,
 				774EEA3A223D50BE00671771 /* EntityManager.swift in Sources */,
 				774EEA38223D4F8E00671771 /* InteractiveEntity.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
+				774EEA71223D981A00671771 /* FollowAgentComponent.swift in Sources */,
 				774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */,
 				774EEA35223D4EE600671771 /* Player.swift in Sources */,
+				774EEA46223D65EB00671771 /* Ball.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
 				774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */,
 			);

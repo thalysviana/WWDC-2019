@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class PhysicsComponent: GKComponent {
+public class PhysicsComponent: GKComponent {
     
     let body: SKPhysicsBody
     
