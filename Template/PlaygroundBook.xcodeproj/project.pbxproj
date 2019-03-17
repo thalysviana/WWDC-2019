@@ -36,6 +36,7 @@
 		774EEA99223EB81E00671771 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA98223EB81E00671771 /* Global.swift */; };
 		774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9A223EBD3C00671771 /* Goalkeeper.swift */; };
 		774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9C223EBE8400671771 /* SKNode+Extension.swift */; };
+		774EEAA2223ED09000671771 /* CategoryMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAA1223ED09000671771 /* CategoryMask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -142,6 +143,7 @@
 		774EEA98223EB81E00671771 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		774EEA9A223EBD3C00671771 /* Goalkeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goalkeeper.swift; sourceTree = "<group>"; };
 		774EEA9C223EBE8400671771 /* SKNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKNode+Extension.swift"; sourceTree = "<group>"; };
+		774EEAA1223ED09000671771 /* CategoryMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,9 +289,9 @@
 				774EEA30223D492200671771 /* Entities */,
 				774EEA36223D4F1300671771 /* Helpers */,
 				774EEA2D223D42CB00671771 /* Scenes */,
+				774EEA9E223ED00400671771 /* Util */,
 				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
 				5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */,
-				774EEA98223EB81E00671771 /* Global.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -348,6 +350,15 @@
 				774EEA9C223EBE8400671771 /* SKNode+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		774EEA9E223ED00400671771 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				774EEA98223EB81E00671771 /* Global.swift */,
+				774EEAA1223ED09000671771 /* CategoryMask.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +520,7 @@
 				774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */,
 				774EEA3A223D50BE00671771 /* EntityManager.swift in Sources */,
 				774EEA38223D4F8E00671771 /* InteractiveEntity.swift in Sources */,
+				774EEAA2223ED09000671771 /* CategoryMask.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
 				774EEA99223EB81E00671771 /* Global.swift in Sources */,
 				774EEA71223D981A00671771 /* FollowAgentComponent.swift in Sources */,

@@ -12,8 +12,7 @@ let degreesToRadians = CGFloat.pi / 180
 let radiansToDegrees = 180 / CGFloat.pi
 
 // MARK: - Ball parameters
-let ballRadius: CGFloat = 20
-let ballSpeed: CGFloat = 5000
+let ballSpeed: CGFloat = 6000
 
 // MARK: - Scene commom mechanics
 func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeInterval, touchLocation: CGPoint, player: Player, ball: Ball) {

@@ -23,6 +23,7 @@ public class Goalkeeper: InteractiveEntity {
         let spriteComponent = SpriteComponent(textureName: textureName)
         
         let body = SKPhysicsBody(circleOfRadius: spriteComponent.node.frame.width/2)
+        body.isDynamic = false
         let physicsComponent = PhysicsComponent(node: spriteComponent.node, body: body)
         
         addComponent(spriteComponent)

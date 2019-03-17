@@ -24,9 +24,11 @@ public class GoalkeeperScene: SKScene {
         super.init(size: size)
         
         backgroundColor = .white
+        physicsWorld.contactDelegate = self
         
         setupEntities()
         setupNodes()
+        setupMasks()
     }
     
     private func setupEntities() {
@@ -41,7 +43,6 @@ public class GoalkeeperScene: SKScene {
     private func setupNodes() {
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         borderBody.friction = 0
-        
         physicsBody = borderBody
         
         let playerNode = player.spriteComponent.node
@@ -53,6 +54,29 @@ public class GoalkeeperScene: SKScene {
         playerNode.position = CGPoint(x: frame.midX, y: frame.midY - 200)
         goalkeeperNode.position = CGPoint(x: frame.midX, y: frame.maxY - 50)
         
+        ballNode.position = playerNode.position
+        ballNode.isHidden = true
+    }
+    
+    private func setupMasks() {
+        let ballBody = ball.physicsComponent.body
+        let goalkeeperBody = goalKeeper.physicsComponent.body
+        
+        goalkeeperBody.categoryBitMask = CategoryMask.goalkeeper
+        ballBody.categoryBitMask = CategoryMask.ball
+        physicsBody?.categoryBitMask = CategoryMask.fieldEdge
+        
+        ballBody.collisionBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge
+        ballBody.contactTestBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge
+    }
+    
+    private func spawnBall() {
+        let ballNode = ball.spriteComponent.node
+        let ballBody = ball.physicsComponent.body
+        let playerNode = player.spriteComponent.node
+        addChild(ballNode)
+        
+        ballBody.linearDamping = 0
         ballNode.position = playerNode.position
         ballNode.isHidden = true
     }
@@ -91,6 +115,39 @@ public class GoalkeeperScene: SKScene {
     }
     
     public override func update(_ currentTime: TimeInterval) {
+    }
+    
+}
+
+extension GoalkeeperScene: SKPhysicsContactDelegate {
+    public func didBegin(_ contact: SKPhysicsContact) {
+        let collision: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        let goalkeeperCollision = CategoryMask.ball | CategoryMask.goalkeeper
+        let fieldEdge = CategoryMask.ball | CategoryMask.fieldEdge
+        
+        if collision == goalkeeperCollision {
+            print("Ball + Goalkeeper collision!")
+            ballDidCollide(withMovement: true)
+        } else if collision == fieldEdge {
+            print("Ball + Field edge collision!")
+            ballDidCollide(withMovement: false)
+        }
+    }
+    
+    public func ballDidCollide(withMovement movement: Bool) {
+        let ballNode = ball.spriteComponent.node
+        let ballBody = ball.physicsComponent.body
+        
+        ballBody.linearDamping = 0.6
+        
+        if !movement {
+            ballBody.velocity = CGVector(dx: 0, dy: 0)
+        }
+        
+        ballNode.run(SKAction.wait(forDuration: 1)) { [weak self] in
+            ballNode.removeFromParent()
+            self?.spawnBall()
+        }
     }
     
 }
