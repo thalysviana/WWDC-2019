@@ -32,6 +32,10 @@
 		774EEA6C223D8AF200671771 /* MoveAgentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6B223D8AF200671771 /* MoveAgentComponent.swift */; };
 		774EEA6F223D8B2700671771 /* CGPoint+vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6E223D8B2700671771 /* CGPoint+vector.swift */; };
 		774EEA71223D981A00671771 /* FollowAgentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA70223D981A00671771 /* FollowAgentComponent.swift */; };
+		774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA96223EB80100671771 /* GoalkeeperScene.swift */; };
+		774EEA99223EB81E00671771 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA98223EB81E00671771 /* Global.swift */; };
+		774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9A223EBD3C00671771 /* Goalkeeper.swift */; };
+		774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9C223EBE8400671771 /* SKNode+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -134,6 +138,10 @@
 		774EEA6B223D8AF200671771 /* MoveAgentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveAgentComponent.swift; sourceTree = "<group>"; };
 		774EEA6E223D8B2700671771 /* CGPoint+vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+vector.swift"; sourceTree = "<group>"; };
 		774EEA70223D981A00671771 /* FollowAgentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowAgentComponent.swift; sourceTree = "<group>"; };
+		774EEA96223EB80100671771 /* GoalkeeperScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalkeeperScene.swift; sourceTree = "<group>"; };
+		774EEA98223EB81E00671771 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		774EEA9A223EBD3C00671771 /* Goalkeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goalkeeper.swift; sourceTree = "<group>"; };
+		774EEA9C223EBE8400671771 /* SKNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKNode+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +289,7 @@
 				774EEA2D223D42CB00671771 /* Scenes */,
 				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
 				5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */,
+				774EEA98223EB81E00671771 /* Global.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -297,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				774EEA2E223D42DC00671771 /* InitialScene.swift */,
+				774EEA96223EB80100671771 /* GoalkeeperScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -307,6 +317,7 @@
 				774EEA37223D4F8E00671771 /* InteractiveEntity.swift */,
 				774EEA34223D4EE600671771 /* Player.swift */,
 				774EEA45223D65EB00671771 /* Ball.swift */,
+				774EEA9A223EBD3C00671771 /* Goalkeeper.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -334,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				774EEA6E223D8B2700671771 /* CGPoint+vector.swift */,
+				774EEA9C223EBE8400671771 /* SKNode+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -498,10 +510,14 @@
 				774EEA3A223D50BE00671771 /* EntityManager.swift in Sources */,
 				774EEA38223D4F8E00671771 /* InteractiveEntity.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
+				774EEA99223EB81E00671771 /* Global.swift in Sources */,
 				774EEA71223D981A00671771 /* FollowAgentComponent.swift in Sources */,
 				774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */,
+				774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */,
 				774EEA35223D4EE600671771 /* Player.swift in Sources */,
+				774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */,
 				774EEA46223D65EB00671771 /* Ball.swift in Sources */,
+				774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
 				774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */,
 			);

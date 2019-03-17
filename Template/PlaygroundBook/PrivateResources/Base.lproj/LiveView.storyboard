@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fcD-sv-Xiz">
-    <device id="ipad12_9" orientation="landscape">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,21 +15,9 @@
             <objects>
                 <viewController id="fcD-sv-Xiz" customClass="Book_Sources_LiveViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rh2-0a-zph">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-7e-CMz">
-                                <rect key="frame" x="646.5" y="501.5" width="73" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="h6a-7e-CMz" firstAttribute="centerX" secondItem="Rh2-0a-zph" secondAttribute="centerX" id="DgE-dK-YaV"/>
-                            <constraint firstItem="h6a-7e-CMz" firstAttribute="centerY" secondItem="Rh2-0a-zph" secondAttribute="centerY" id="rsb-9d-7m1"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qaR-nP-dw0"/>
                     </view>
                 </viewController>

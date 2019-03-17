@@ -8,11 +8,12 @@
 import SpriteKit
 import GameplayKit
 
-public class InitialScene: SKScene {
+public class GoalkeeperScene: SKScene {
     
     private var entityManager: EntityManager!
     private var player: Player!
     private var ball: Ball!
+    private var goalKeeper: Goalkeeper!
     
     private let initialPosition: CGPoint = .zero
     
@@ -32,19 +33,27 @@ public class InitialScene: SKScene {
         entityManager = EntityManager(scene: self)
         player = Player(textureName: "character")
         ball = Ball(textureName: "ball")
+        goalKeeper = Goalkeeper(textureName: "enemy")
         
-        entityManager.add([player, ball])
+        entityManager.add([player, ball, goalKeeper])
     }
     
     private func setupNodes() {
+        let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        borderBody.friction = 0
+        
+        physicsBody = borderBody
+        
         let playerNode = player.spriteComponent.node
         let ballNode = ball.spriteComponent.node
+        let goalkeeperNode = goalKeeper.spriteComponent.node
         
-        addChildren(sequence: [playerNode, ballNode])
+        addChildren(sequence: [playerNode, ballNode, goalkeeperNode])
         
         playerNode.position = CGPoint(x: frame.midX, y: frame.midY - 200)
+        goalkeeperNode.position = CGPoint(x: frame.midX, y: frame.maxY - 50)
         
-        ball.spriteComponent.node.position = playerNode.position
+        ballNode.position = playerNode.position
         ballNode.isHidden = true
     }
     
@@ -58,7 +67,7 @@ public class InitialScene: SKScene {
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
