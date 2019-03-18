@@ -13,8 +13,7 @@ public class GoalkeeperScene: SKScene {
     private var entityManager: EntityManager!
     private var player: Player!
     private var ball: Ball!
-    private var goalKeeper: Goalkeeper!
-    private var containerNode: SKShapeNode!
+    private var goalkeeper: Goalkeeper!
     
     private let initialPosition: CGPoint = .zero
     
@@ -32,27 +31,27 @@ public class GoalkeeperScene: SKScene {
         setupEntities()
         setupNodes()
         setupMasks()
+        
+//        naiveDefense(goalkeeper: goalkeeper)
     }
     
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
         player = Player(textureName: "character")
         ball = Ball(textureName: "ball")
-        goalKeeper = Goalkeeper(textureName: "enemy", seek: ball)
+        goalkeeper = Goalkeeper(textureName: "enemy", seek: ball)
         
-        entityManager.add([player, ball, goalKeeper])
+        entityManager.add([player, ball, goalkeeper])
     }
     
     private func setupNodes() {
-        containerNode = SKShapeNode(rect: CGRect(origin: CGPoint(x: frame.midX/2, y: frame.maxY - 150), size: CGSize(width: 400, height: 64)))
-        
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         borderBody.friction = 0
         physicsBody = borderBody
         
         let playerNode = player.spriteComponent.node
         let ballNode = ball.spriteComponent.node
-        let goalkeeperNode = goalKeeper.spriteComponent.node
+        let goalkeeperNode = goalkeeper.spriteComponent.node
         
         addChildren(sequence: [playerNode, ballNode, goalkeeperNode])
         
@@ -61,22 +60,17 @@ public class GoalkeeperScene: SKScene {
         
         ballNode.position = playerNode.position
         ballNode.isHidden = true
-        
-        goalKeeper.addNaiveDefense()
-//        goalKeeper.addSmartDefense(withNode: containerNode, inScene: self)
     }
     
     private func setupMasks() {
         let ballBody = ball.physicsComponent.body
-        let goalkeeperBody = goalKeeper.physicsComponent.body
+        let goalkeeperBody = goalkeeper.physicsComponent.body
         
         goalkeeperBody.categoryBitMask = CategoryMask.goalkeeper
         ballBody.categoryBitMask = CategoryMask.ball
         physicsBody?.categoryBitMask = CategoryMask.fieldEdge
         
-        
-        goalkeeperBody.collisionBitMask = CategoryMask.container
-        ballBody.collisionBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge & ~CategoryMask.container
+        ballBody.collisionBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge
         ballBody.contactTestBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge
     }
     
@@ -106,6 +100,7 @@ public class GoalkeeperScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball)
+        smartDefense(inScene: self, baseLocation: player.spriteComponent.node.position, curLocation: pos, prevLocation: touchLocation, goalkeeper: goalkeeper)
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -158,7 +153,7 @@ extension GoalkeeperScene: SKPhysicsContactDelegate {
             ballBody.velocity = CGVector(dx: 0, dy: 0)
         }
         
-        ballNode.run(SKAction.wait(forDuration: 1)) { [weak self] in
+        ballNode.run(SKAction.wait(forDuration: 0.5)) { [weak self] in
             ballNode.removeFromParent()
             self?.spawnBall()
         }

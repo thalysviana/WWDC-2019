@@ -14,6 +14,11 @@ let radiansToDegrees = 180 / CGFloat.pi
 // MARK: - Ball parameters
 let ballSpeed: CGFloat = 6000
 
+// MARK: - Goalkeeper parameters
+let gkTopDistance: CGFloat = -100
+let gkMinDistance: CGFloat = -180
+let gkMaxDistance: CGFloat = 180
+
 // MARK: - Scene commom mechanics
 func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeInterval, touchLocation: CGPoint, player: Player, ball: Ball) {
     let playerNode = player.spriteComponent.node
@@ -40,4 +45,91 @@ func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeIn
     ballNode.isHidden = false
 
     ball.physicsComponent.body.applyForce(base)
+}
+
+func naiveDefense(goalkeeper: Goalkeeper) {
+    let goalkeeperNode = goalkeeper.spriteComponent.node
+    
+    let initialMovement = SKAction.moveBy(x: gkMaxDistance, y: 0, duration: 1)
+    let rightBackMovement = initialMovement.reversed()
+    let leftMovement = SKAction.moveBy(x: gkMinDistance, y: 0, duration: 1)
+    let leftBackMovement = leftMovement.reversed()
+    let sequence = SKAction.sequence([initialMovement, rightBackMovement, leftMovement, leftBackMovement])
+    let repeatAction = SKAction.repeatForever(sequence)
+    
+    goalkeeperNode.run(repeatAction)
+}
+
+func smartDefense(inScene scene: SKScene, baseLocation: CGPoint, curLocation: CGPoint, prevLocation: CGPoint, goalkeeper: Goalkeeper) {
+    let goalkeeperNode = goalkeeper.spriteComponent.node
+    
+    let xDelta = curLocation.x - prevLocation.x
+    let yDelta = curLocation.y - prevLocation.y
+    let endPoint = CGPoint(x: xDelta * 10, y: yDelta * 10)
+    
+    let point = intersectionOfLine(from: baseLocation, to: endPoint, withLineFrom: CGPoint(x: 0, y: scene.frame.maxY - gkTopDistance), to: CGPoint(x: scene.frame.maxX, y: scene.frame.maxY - gkTopDistance))
+    var distance: CGFloat = point.x - scene.frame.midX
+    
+    if distance < gkMinDistance {
+        distance = gkMinDistance
+    } else if distance > gkMaxDistance {
+        distance = gkMaxDistance
+    }
+    
+    let moveAction = SKAction.moveBy(x: distance, y: 0, duration: 0.7)
+    let reverseAction = moveAction.reversed()
+    let sequenceAction = SKAction.sequence([moveAction, reverseAction])
+    goalkeeperNode.run(sequenceAction)
+}
+
+// MARK: - Calculations
+func intersectionOfLine(from p1: CGPoint, to p2: CGPoint, withLineFrom p3: CGPoint, to p4: CGPoint) -> CGPoint {
+    let d: CGFloat = (p2.x - p1.x)*(p4.y - p3.y) - (p2.y - p1.y)*(p4.x - p3.x)
+    if d == 0 {
+        print("No intersection")
+    }
+    let u = ((p3.x - p1.x)*(p4.y - p3.y) - (p3.y - p1.y)*(p4.x - p3.x))/d
+    let v = ((p3.x - p1.x)*(p2.y - p1.y) - (p3.y - p1.y)*(p2.x - p1.x))/d
+    
+    if u < 0 || u > 1 {
+        print("No intersection")
+    }
+    
+    if v < 0 || v > 1 {
+        print("No intersection")
+    }
+    let xIntersection = p1.x + u * (p2.x - p1.x)
+    let yIntersection = p1.y + u * (p2.y - p1.y)
+    
+    return CGPoint(x: xIntersection, y: yIntersection)
+}
+
+func drawLine(startPoint: CGPoint, endPoint: CGPoint, inScene scene: SKScene, horizontalLine: Bool) {
+    var finalPoint = CGPoint(x: endPoint.x * 10, y: endPoint.y * 10)
+    
+    if horizontalLine {
+        finalPoint = endPoint
+    }
+    
+    let path = CGMutablePath()
+    path.move(to: startPoint)
+    path.addLine(to: finalPoint)
+    
+    let line = SKShapeNode(path: path)
+    line.path = path
+    line.fillColor = .clear
+    line.strokeColor = .red
+    line.lineCap = .round
+    
+    scene.addChild(line)
+}
+
+func getBaseVector(atPoint pos: CGPoint, touchLocation: CGPoint) -> CGVector {
+    let location = pos
+    let xDelta = location.x - touchLocation.x
+    let yDelta = location.y - touchLocation.y
+    let swipe = CGVector(dx: xDelta, dy: yDelta)
+    let swipeLength = sqrt(swipe.dx * swipe.dx + swipe.dy * swipe.dy)
+    let base = CGVector(dx: xDelta/swipeLength * ballSpeed, dy: yDelta/swipeLength * ballSpeed)
+    return base
 }
