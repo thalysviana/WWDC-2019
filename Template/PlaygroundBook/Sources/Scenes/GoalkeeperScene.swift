@@ -14,6 +14,7 @@ public class GoalkeeperScene: SKScene {
     private var player: Player!
     private var ball: Ball!
     private var goalKeeper: Goalkeeper!
+    private var containerNode: SKShapeNode!
     
     private let initialPosition: CGPoint = .zero
     
@@ -37,12 +38,14 @@ public class GoalkeeperScene: SKScene {
         entityManager = EntityManager(scene: self)
         player = Player(textureName: "character")
         ball = Ball(textureName: "ball")
-        goalKeeper = Goalkeeper(textureName: "enemy")
+        goalKeeper = Goalkeeper(textureName: "enemy", seek: ball)
         
         entityManager.add([player, ball, goalKeeper])
     }
     
     private func setupNodes() {
+        containerNode = SKShapeNode(rect: CGRect(origin: CGPoint(x: frame.midX/2, y: frame.maxY - 150), size: CGSize(width: 400, height: 64)))
+        
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         borderBody.friction = 0
         physicsBody = borderBody
@@ -60,6 +63,7 @@ public class GoalkeeperScene: SKScene {
         ballNode.isHidden = true
         
         goalKeeper.addNaiveDefense()
+//        goalKeeper.addSmartDefense(withNode: containerNode, inScene: self)
     }
     
     private func setupMasks() {
@@ -70,7 +74,9 @@ public class GoalkeeperScene: SKScene {
         ballBody.categoryBitMask = CategoryMask.ball
         physicsBody?.categoryBitMask = CategoryMask.fieldEdge
         
-        ballBody.collisionBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge
+        
+        goalkeeperBody.collisionBitMask = CategoryMask.container
+        ballBody.collisionBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge & ~CategoryMask.container
         ballBody.contactTestBitMask = CategoryMask.goalkeeper | CategoryMask.fieldEdge
     }
     

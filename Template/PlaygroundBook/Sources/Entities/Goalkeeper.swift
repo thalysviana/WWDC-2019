@@ -17,7 +17,10 @@ public class Goalkeeper: InteractiveEntity {
         return component
     }()
     
-    override init(textureName: String) {
+    let seek: GKEntity
+    
+    init(textureName: String, seek: GKEntity) {
+        self.seek = seek
         super.init(textureName: textureName)
         
         let spriteComponent = SpriteComponent(textureName: textureName)
@@ -40,6 +43,18 @@ public class Goalkeeper: InteractiveEntity {
         let repeatAction = SKAction.repeatForever(sequence)
         
         spriteComponent.node.run(repeatAction)
+    }
+    
+    func addSmartDefense(withNode node: SKNode, inScene scene: SKScene) {
+        if let pursuedComponent = seek.component(ofType: PursuedComponent.self) {
+            let followComponent = FollowComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(spriteComponent.node.frame.width) * 0.3, seek: pursuedComponent)
+            addComponent(followComponent)
+        }
+        
+        physicsComponent.body.isDynamic = true
+        node.physicsBody = SKPhysicsBody(edgeLoopFrom: node.frame)
+        node.physicsBody?.categoryBitMask = CategoryMask.container
+        scene.addChild(node)
     }
     
     required init?(coder aDecoder: NSCoder) {
