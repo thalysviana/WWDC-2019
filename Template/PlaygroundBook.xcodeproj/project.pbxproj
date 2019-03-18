@@ -39,6 +39,8 @@
 		774EEAA4223F22F400671771 /* FollowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAA3223F22F400671771 /* FollowComponent.swift */; };
 		774EEAA9223F250600671771 /* PursuedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAA8223F250600671771 /* PursuedComponent.swift */; };
 		774EEAAB223F2A1000671771 /* NaiveDefenseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAA223F2A0F00671771 /* NaiveDefenseComponent.swift */; };
+		774EEAAD223FE36B00671771 /* WallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAC223FE36B00671771 /* WallScene.swift */; };
+		774EEAAF2240024F00671771 /* Defender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAE2240024F00671771 /* Defender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -148,6 +150,8 @@
 		774EEAA3223F22F400671771 /* FollowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowComponent.swift; sourceTree = "<group>"; };
 		774EEAA8223F250600671771 /* PursuedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PursuedComponent.swift; sourceTree = "<group>"; };
 		774EEAAA223F2A0F00671771 /* NaiveDefenseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaiveDefenseComponent.swift; sourceTree = "<group>"; };
+		774EEAAC223FE36B00671771 /* WallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallScene.swift; sourceTree = "<group>"; };
+		774EEAAE2240024F00671771 /* Defender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +317,7 @@
 			children = (
 				774EEA2E223D42DC00671771 /* InitialScene.swift */,
 				774EEA96223EB80100671771 /* GoalkeeperScene.swift */,
+				774EEAAC223FE36B00671771 /* WallScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				774EEA34223D4EE600671771 /* Player.swift */,
 				774EEA45223D65EB00671771 /* Ball.swift */,
 				774EEA9A223EBD3C00671771 /* Goalkeeper.swift */,
+				774EEAAE2240024F00671771 /* Defender.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -525,6 +531,7 @@
 				774EEA6C223D8AF200671771 /* MoveComponent.swift in Sources */,
 				774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */,
 				774EEA3A223D50BE00671771 /* EntityManager.swift in Sources */,
+				774EEAAF2240024F00671771 /* Defender.swift in Sources */,
 				774EEA38223D4F8E00671771 /* InteractiveEntity.swift in Sources */,
 				774EEAA2223ED09000671771 /* CategoryMask.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
@@ -533,6 +540,7 @@
 				774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */,
 				774EEAA9223F250600671771 /* PursuedComponent.swift in Sources */,
 				774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */,
+				774EEAAD223FE36B00671771 /* WallScene.swift in Sources */,
 				774EEA35223D4EE600671771 /* Player.swift in Sources */,
 				774EEAAB223F2A1000671771 /* NaiveDefenseComponent.swift in Sources */,
 				774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */,

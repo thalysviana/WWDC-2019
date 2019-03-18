@@ -25,7 +25,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         view.addSubview(gameView)
         
 //        let scene = InitialScene(size: view.bounds.size)
-        let scene = GoalkeeperScene(size: view.bounds.size)
+//        let scene = GoalkeeperScene(size: view.bounds.size)
+        let scene = WallScene(size: view.bounds.size)
         scene.scaleMode = .aspectFill
         
         gameView.ignoresSiblingOrder = true

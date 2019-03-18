@@ -82,6 +82,21 @@ func smartDefense(inScene scene: SKScene, baseLocation: CGPoint, curLocation: CG
     goalkeeperNode.run(sequenceAction)
 }
 
+func generateWallPosition(inSceneFrame frame: CGRect) -> CGPoint {
+    let minXOffset: CGFloat = 160
+    let maxXOffset: CGFloat = 10
+    let minYOffset: CGFloat = 200
+    let maxYOffset: CGFloat = 350
+    
+    let xRange = Int((frame.midX - minXOffset))...Int((frame.midX + maxXOffset))
+    let yRange = Int((frame.maxY - maxYOffset))...Int((frame.maxY - minYOffset))
+    
+    let xPosition = Int.random(in: xRange)
+    let yPosition = Int.random(in: yRange)
+    print(xPosition)
+    return CGPoint(x: xPosition, y: yPosition)
+}
+
 // MARK: - Calculations
 func intersectionOfLine(from p1: CGPoint, to p2: CGPoint, withLineFrom p3: CGPoint, to p4: CGPoint) -> CGPoint {
     let d: CGFloat = (p2.x - p1.x)*(p4.y - p3.y) - (p2.y - p1.y)*(p4.x - p3.x)
