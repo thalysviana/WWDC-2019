@@ -28,6 +28,18 @@ public class Goalkeeper: InteractiveEntity {
         
         addComponent(spriteComponent)
         addComponent(physicsComponent)
+//        addComponent(NaiveDefenseComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(spriteComponent.node.frame.width) * 0.3))
+    }
+    
+    func addNaiveDefense() {
+        let initialMovement = SKAction.moveBy(x: 150, y: 0, duration: 1)
+        let rightBackMovement = initialMovement.reversed()
+        let leftMovement = SKAction.moveBy(x: -150, y: 0, duration: 1)
+        let leftBackMovement = leftMovement.reversed()
+        let sequence = SKAction.sequence([initialMovement, rightBackMovement, leftMovement, leftBackMovement])
+        let repeatAction = SKAction.repeatForever(sequence)
+        
+        spriteComponent.node.run(repeatAction)
     }
     
     required init?(coder aDecoder: NSCoder) {

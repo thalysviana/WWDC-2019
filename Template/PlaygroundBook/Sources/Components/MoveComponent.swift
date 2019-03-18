@@ -8,12 +8,9 @@
 import SpriteKit
 import GameplayKit
 
-class MoveAgentComponent: GKAgent2D, GKAgentDelegate {
+class MoveComponent: GKAgent2D, GKAgentDelegate {
     
-    let entityManager: EntityManager
-    
-    init(maxSpeed: Float, maxAcceleration: Float, radius: Float, entityManager: EntityManager) {
-        self.entityManager = entityManager
+    init(maxSpeed: Float, maxAcceleration: Float, radius: Float) {
         super.init()
         delegate = self
         self.maxSpeed = maxSpeed
@@ -21,6 +18,7 @@ class MoveAgentComponent: GKAgent2D, GKAgentDelegate {
         self.radius = radius
 //        print(self.mass)
         self.mass = 0.01
+    
     }
     
     func agentWillUpdate(_ agent: GKAgent) {

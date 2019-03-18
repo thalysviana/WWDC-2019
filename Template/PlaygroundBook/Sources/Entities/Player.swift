@@ -15,6 +15,7 @@ public class Player: InteractiveEntity {
         
         let spriteComponent = SpriteComponent(textureName: textureName)
         addComponent(spriteComponent)
+        addComponent(MoveComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(spriteComponent.node.frame.width) * 0.3))
     }
     
     required init?(coder aDecoder: NSCoder) {

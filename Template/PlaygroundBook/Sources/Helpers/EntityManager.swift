@@ -15,7 +15,8 @@ public final class EntityManager {
     
     var toRemove = Set<GKEntity>()
     lazy var componentSystems: [GKComponentSystem] = {
-        return []
+        let naiveDefenseComponentSystem = GKComponentSystem(componentClass: NaiveDefenseComponent.self)
+        return [naiveDefenseComponentSystem]
     }()
     
     init(scene: SKScene) {

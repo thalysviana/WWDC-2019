@@ -20,6 +20,8 @@ public class GoalkeeperScene: SKScene {
     private var touchLocation = CGPoint.zero
     private var touchTime: CFTimeInterval = 0
     
+    private var lastUpdateTimeInterval = TimeInterval(0)
+    
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -52,10 +54,12 @@ public class GoalkeeperScene: SKScene {
         addChildren(sequence: [playerNode, ballNode, goalkeeperNode])
         
         playerNode.position = CGPoint(x: frame.midX, y: frame.midY - 200)
-        goalkeeperNode.position = CGPoint(x: frame.midX, y: frame.maxY - 50)
+        goalkeeperNode.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
         
         ballNode.position = playerNode.position
         ballNode.isHidden = true
+        
+        goalKeeper.addNaiveDefense()
     }
     
     private func setupMasks() {
@@ -115,6 +119,10 @@ public class GoalkeeperScene: SKScene {
     }
     
     public override func update(_ currentTime: TimeInterval) {
+        let deltaTime = currentTime - lastUpdateTimeInterval
+        lastUpdateTimeInterval = currentTime
+        
+        entityManager.update(deltaTime)
     }
     
 }
