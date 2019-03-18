@@ -19,6 +19,10 @@ let gkTopDistance: CGFloat = -100
 let gkMinDistance: CGFloat = -180
 let gkMaxDistance: CGFloat = 180
 
+// MARK: = Wall parameters
+let maxNumberDefenders = 4
+let minNumberDefenders = 2
+
 // MARK: - Scene commom mechanics
 func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeInterval, touchLocation: CGPoint, player: Player, ball: Ball) {
     let playerNode = player.spriteComponent.node
@@ -80,6 +84,10 @@ func smartDefense(inScene scene: SKScene, baseLocation: CGPoint, curLocation: CG
     let reverseAction = moveAction.reversed()
     let sequenceAction = SKAction.sequence([moveAction, reverseAction])
     goalkeeperNode.run(sequenceAction)
+}
+
+func getRandomNumberOfWallPlayers(inRange range: ClosedRange<Int>) -> Int {
+    return Int.random(in: range)
 }
 
 func generateWallPosition(inSceneFrame frame: CGRect) -> CGPoint {

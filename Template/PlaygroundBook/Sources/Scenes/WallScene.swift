@@ -23,6 +23,8 @@ public class WallScene: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
+    private var numberOfDefenders = 0
+    
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -33,11 +35,8 @@ public class WallScene: SKScene {
         setupNodes()
         setupMasks()
         
-        naiveDefense(goalkeeper: goalkeeper)
-        print(frame.midX)
-        
-        let wallPoint = generateWallPosition(inSceneFrame: frame)
-        naiveSetupWall(atPoint: wallPoint, numOfplayers: 5)
+//        naiveDefense(goalkeeper: goalkeeper)
+        setupWall()
     }
     
     private func setupEntities() {
@@ -90,14 +89,18 @@ public class WallScene: SKScene {
         ballBody.linearDamping = 0
         ballNode.position = playerNode.position
         ballNode.isHidden = true
+        
+        recreateWall()
     }
     
-    private func setupStaticWall(atPoint point: CGPoint, withNumber number: Int) {
-        naiveSetupWall(atPoint: point, numOfplayers: number)
+    private func setupWall() {
+        numberOfDefenders = getRandomNumberOfWallPlayers(inRange: minNumberDefenders...maxNumberDefenders)
+        let wallPoint = generateWallPosition(inSceneFrame: frame)
+        createWallDefenders(atPoint: wallPoint, numOfplayers: numberOfDefenders)
     }
     
-    private func naiveSetupWall(atPoint point: CGPoint, numOfplayers: Int) {
-        let numberOfPlayers = numOfplayers > 7 ? 4 : numOfplayers
+    private func createWallDefenders(atPoint point: CGPoint, numOfplayers: Int) {
+        let numberOfPlayers = numOfplayers > maxNumberDefenders || numOfplayers < minNumberDefenders ? maxNumberDefenders : numOfplayers
         var defenders  = [Defender]()
         
         for _ in 0..<numberOfPlayers {
@@ -122,6 +125,12 @@ public class WallScene: SKScene {
         containerNode.position = point
     }
     
+    private func recreateWall() {
+        containerNode.removeAllChildren()
+        
+        setupWall()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -137,7 +146,7 @@ public class WallScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball)
-//        smartDefense(inScene: self, baseLocation: player.spriteComponent.node.position, curLocation: pos, prevLocation: touchLocation, goalkeeper: goalkeeper)
+        smartDefense(inScene: self, baseLocation: player.spriteComponent.node.position, curLocation: pos, prevLocation: touchLocation, goalkeeper: goalkeeper)
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
