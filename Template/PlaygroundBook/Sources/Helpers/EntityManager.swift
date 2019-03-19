@@ -15,9 +15,7 @@ public final class EntityManager {
     
     var toRemove = Set<GKEntity>()
     lazy var componentSystems: [GKComponentSystem] = {
-        let pursuedComponentSystem = GKComponentSystem(componentClass: PursuedComponent.self)
-        let followComponentSystem = GKComponentSystem(componentClass: FollowComponent.self)
-        return [pursuedComponentSystem, followComponentSystem]
+        return []
     }()
     
     init(scene: SKScene) {
@@ -73,5 +71,20 @@ public final class EntityManager {
         }
         return components
     }
+    
+    func setupSpriteEntities() {
+        entities.forEach { entity in
+            if let entitySpriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+                entitySpriteNode.zPosition = 3
+                if !(entity is Ball) {
+                    entitySpriteNode.setScale(0.2)
+                } else {
+                    entitySpriteNode.setScale(0.4)
+                }
+            }
+        }
+    }
+    
+    
     
 }

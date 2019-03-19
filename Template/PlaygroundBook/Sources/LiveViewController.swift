@@ -20,6 +20,10 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         setupViews()
     }
     
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
     private func setupViews() {
         gameView = SKView(frame: view.frame)
         view.addSubview(gameView)

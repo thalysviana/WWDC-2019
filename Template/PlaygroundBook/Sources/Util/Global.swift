@@ -7,6 +7,9 @@
 
 import SpriteKit
 
+// MARK: - Scene parameters
+let sceneBackground = SKSpriteNode(imageNamed: "soccer_field")
+
 // MARK: - Auxiliar convertions
 let degreesToRadians = CGFloat.pi / 180
 let radiansToDegrees = 180 / CGFloat.pi
@@ -16,8 +19,8 @@ let ballSpeed: CGFloat = 6000
 
 // MARK: - Goalkeeper parameters
 let gkTopDistance: CGFloat = -100
-let gkMinDistance: CGFloat = -180
-let gkMaxDistance: CGFloat = 180
+let gkMinDistance: CGFloat = -120
+let gkMaxDistance: CGFloat = 120
 
 // MARK: = Wall parameters
 let maxNumberDefenders = 4
@@ -93,7 +96,7 @@ func getRandomNumberOfWallPlayers(inRange range: ClosedRange<Int>) -> Int {
 func generateWallPosition(inSceneFrame frame: CGRect) -> CGPoint {
     let minXOffset: CGFloat = 160
     let maxXOffset: CGFloat = 10
-    let minYOffset: CGFloat = 200
+    let minYOffset: CGFloat = 300
     let maxYOffset: CGFloat = 350
     
     let xRange = Int((frame.midX - minXOffset))...Int((frame.midX + maxXOffset))

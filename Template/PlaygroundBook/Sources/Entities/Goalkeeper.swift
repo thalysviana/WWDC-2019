@@ -19,7 +19,7 @@ public class Goalkeeper: InteractiveEntity {
     
     let seek: GKEntity
     
-    init(textureName: String, seek: GKEntity) {
+    init(textureName: String = "goalkeeper_front", seek: GKEntity) {
         self.seek = seek
         super.init(textureName: textureName)
         

@@ -35,6 +35,13 @@ public class GoalkeeperScene: SKScene {
 //        naiveDefense(goalkeeper: goalkeeper)
     }
     
+    override public func didMove(to view: SKView) {
+        sceneBackground.zPosition = 1
+        sceneBackground.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        
+        addChild(sceneBackground)
+    }
+    
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
         player = Player(textureName: "character")
@@ -42,6 +49,7 @@ public class GoalkeeperScene: SKScene {
         goalkeeper = Goalkeeper(textureName: "enemy", seek: ball)
         
         entityManager.add([player, ball, goalkeeper])
+        entityManager.setupSpriteEntities()
     }
     
     private func setupNodes() {

@@ -15,6 +15,7 @@ public class WallScene: SKScene {
     private var ball: Ball!
     private var goalkeeper: Goalkeeper!
     private var containerNode: SKSpriteNode!
+    private var post: Post!
     
     private let initialPosition: CGPoint = .zero
     
@@ -35,15 +36,23 @@ public class WallScene: SKScene {
         setupNodes()
         setupMasks()
         
-//        naiveDefense(goalkeeper: goalkeeper)
-        setupWall()
+        naiveDefense(goalkeeper: goalkeeper)
+    }
+    
+    override public func didMove(to view: SKView) {
+        sceneBackground.zPosition = 1
+        sceneBackground.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        sceneBackground.size = self.frame.size
+        
+        addChild(sceneBackground)
     }
     
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
-        player = Player(textureName: "character")
+        player = Player()
         ball = Ball(textureName: "ball")
-        goalkeeper = Goalkeeper(textureName: "enemy", seek: ball)
+        goalkeeper = Goalkeeper(seek: ball)
+        post = Post(scene: self, goalkeeper: goalkeeper)
         
         entityManager.add([player, ball, goalkeeper])
     }
@@ -62,10 +71,13 @@ public class WallScene: SKScene {
         addChildren(sequence: [playerNode, ballNode, goalkeeperNode, containerNode])
         
         playerNode.position = CGPoint(x: frame.midX, y: frame.midY - 200)
-        goalkeeperNode.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
+        goalkeeperNode.position = CGPoint(x: frame.midX, y: frame.maxY - 160)
         
         ballNode.position = playerNode.position
         ballNode.isHidden = true
+        
+        setupWall()
+        post.setPostEdgesPositions(scene: self, goalkeeper: goalkeeper)
     }
     
     private func setupMasks() {
@@ -97,6 +109,7 @@ public class WallScene: SKScene {
         numberOfDefenders = getRandomNumberOfWallPlayers(inRange: minNumberDefenders...maxNumberDefenders)
         let wallPoint = generateWallPosition(inSceneFrame: frame)
         createWallDefenders(atPoint: wallPoint, numOfplayers: numberOfDefenders)
+        entityManager.setupSpriteEntities()
     }
     
     private func createWallDefenders(atPoint point: CGPoint, numOfplayers: Int) {
@@ -104,7 +117,7 @@ public class WallScene: SKScene {
         var defenders  = [Defender]()
         
         for _ in 0..<numberOfPlayers {
-            let newPlayer = Defender(textureName: "defender")
+            let newPlayer = Defender()
             defenders.append(newPlayer)
         }
         
@@ -114,13 +127,14 @@ public class WallScene: SKScene {
     private func setupWallNodes(atPoint point: CGPoint, defenders: [Defender]) {
         entityManager.add(defenders)
         
-        var lastPosition = 0
+        var lastPosition: CGFloat = 0
+        let distanceOffset: CGFloat = 50
         
         for i in 0..<defenders.count {
             let defenderNode = defenders[i].spriteComponent.node
             containerNode.addChild(defenderNode)
             defenderNode.position.x = CGFloat(lastPosition)
-            lastPosition += 38
+            lastPosition += distanceOffset
         }
         containerNode.position = point
     }
@@ -146,7 +160,7 @@ public class WallScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball)
-        smartDefense(inScene: self, baseLocation: player.spriteComponent.node.position, curLocation: pos, prevLocation: touchLocation, goalkeeper: goalkeeper)
+//        smartDefense(inScene: self, baseLocation: player.spriteComponent.node.position, curLocation: pos, prevLocation: touchLocation, goalkeeper: goalkeeper)
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

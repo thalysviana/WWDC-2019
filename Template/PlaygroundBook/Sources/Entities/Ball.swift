@@ -26,11 +26,9 @@ public class Ball: InteractiveEntity {
         setupBallPhysics(body: body)
         
         let physicsComponent = PhysicsComponent(node: spriteComponent.node, body: body)
-        let pursuedComponent = PursuedComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(spriteComponent.node.frame.width) * 0.3)
         
         addComponent(spriteComponent)
         addComponent(physicsComponent)
-        addComponent(pursuedComponent)
     }
     
     private func setupBallPhysics(body: SKPhysicsBody) {

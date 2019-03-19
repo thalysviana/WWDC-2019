@@ -10,7 +10,7 @@ import GameplayKit
 
 public class Defender: InteractiveEntity {
     
-    override init(textureName: String) {
+    override init(textureName: String = "defender_front") {
         super.init(textureName: textureName)
         
         let texture = SKTexture(imageNamed: textureName)

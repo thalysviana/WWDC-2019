@@ -22,11 +22,6 @@ public class InteractiveEntity: GKEntity {
         
         let spriteComponent = SpriteComponent(textureName: textureName)
         addComponent(spriteComponent)
-        
-//        let body = SKPhysicsBody(circleOfRadius: spriteComponent.node.frame.width/2)
-//        body.categoryBitMask = CategoryType.fish
-//        let physicsComponent = PhysicsComponent(node: spriteComponent.node, body: body)
-//        addComponent(physicsComponent)
     }
     
     required init?(coder aDecoder: NSCoder) {

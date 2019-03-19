@@ -7,8 +7,7 @@
 
 import SpriteKit
 import GameplayKit
-
-class MoveComponent: GKAgent2D, GKAgentDelegate {
+public class MoveComponent: GKAgent2D, GKAgentDelegate {
     
     init(maxSpeed: Float, maxAcceleration: Float, radius: Float) {
         super.init()
@@ -21,21 +20,21 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
     
     }
     
-    func agentWillUpdate(_ agent: GKAgent) {
+    public func agentWillUpdate(_ agent: GKAgent) {
         guard let spriteNode = entity?.component(ofType: SpriteComponent.self)?.node else {
             fatalError("Agent has no SpriteComponent.")
         }
         self.position = vector_float2(point: spriteNode.position)
     }
     
-    func agentDidUpdate(_ agent: GKAgent) {
+    public func agentDidUpdate(_ agent: GKAgent) {
         guard let spriteNode = entity?.component(ofType: SpriteComponent.self)?.node else {
             fatalError("Agent has no SpriteComponent.")
         }
         spriteNode.position = CGPoint(vector: position)
     }
     
-    override func update(deltaTime seconds: TimeInterval) {
+    override public func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
     }
     

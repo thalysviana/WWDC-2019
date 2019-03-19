@@ -10,7 +10,7 @@ import GameplayKit
 
 public class Player: InteractiveEntity {
     
-    override init(textureName: String) {
+    override init(textureName: String = "soccer_player_back") {
         super.init(textureName: textureName)
         
         let spriteComponent = SpriteComponent(textureName: textureName)

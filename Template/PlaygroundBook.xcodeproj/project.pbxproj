@@ -20,24 +20,33 @@
 		5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2F9AD2054BBF300191409 /* LiveViewController.swift */; };
 		5EF2F9B72054E6FB00191409 /* Chapters in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5EF2F9B62054E6F900191409 /* Chapters */; };
 		5EF2F9B82054E6FE00191409 /* Sources in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5EF2F9A52054BBB200191409 /* Sources */; };
+		773FB14E22416E1C0065657A /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6B223D8AF200671771 /* MoveComponent.swift */; };
+		773FB16922418D3D0065657A /* soccer_player_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16422418D3C0065657A /* soccer_player_back.png */; };
+		773FB16A22418D3D0065657A /* soccer_player_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16422418D3C0065657A /* soccer_player_back.png */; };
+		773FB16B22418D3D0065657A /* defender_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16522418D3C0065657A /* defender_front.png */; };
+		773FB16C22418D3D0065657A /* defender_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16522418D3C0065657A /* defender_front.png */; };
+		773FB16D22418D3D0065657A /* soccer_field.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16622418D3C0065657A /* soccer_field.png */; };
+		773FB16E22418D3D0065657A /* soccer_field.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16622418D3C0065657A /* soccer_field.png */; };
+		773FB16F22418D3D0065657A /* soccer_player_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16722418D3D0065657A /* soccer_player_front.png */; };
+		773FB17022418D3D0065657A /* soccer_player_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16722418D3D0065657A /* soccer_player_front.png */; };
+		773FB17122418D3D0065657A /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16822418D3D0065657A /* ball.png */; };
+		773FB17222418D3D0065657A /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16822418D3D0065657A /* ball.png */; };
+		773FB1772241967D0065657A /* goalkeeper_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB1762241967D0065657A /* goalkeeper_front.png */; };
+		773FB1782241967D0065657A /* goalkeeper_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB1762241967D0065657A /* goalkeeper_front.png */; };
+		773FB17D2241998A0065657A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773FB17C2241998A0065657A /* Post.swift */; };
 		774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA2E223D42DC00671771 /* InitialScene.swift */; };
 		774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA32223D4E2B00671771 /* SpriteComponent.swift */; };
 		774EEA35223D4EE600671771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA34223D4EE600671771 /* Player.swift */; };
 		774EEA38223D4F8E00671771 /* InteractiveEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA37223D4F8E00671771 /* InteractiveEntity.swift */; };
 		774EEA3A223D50BE00671771 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA39223D50BE00671771 /* EntityManager.swift */; };
 		774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA3B223D524B00671771 /* PhysicsComponent.swift */; };
-		774EEA43223D61D400671771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774EEA42223D61D400671771 /* Assets.xcassets */; };
-		774EEA44223D627A00671771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774EEA42223D61D400671771 /* Assets.xcassets */; };
 		774EEA46223D65EB00671771 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA45223D65EB00671771 /* Ball.swift */; };
-		774EEA6C223D8AF200671771 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6B223D8AF200671771 /* MoveComponent.swift */; };
 		774EEA6F223D8B2700671771 /* CGPoint+vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6E223D8B2700671771 /* CGPoint+vector.swift */; };
 		774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA96223EB80100671771 /* GoalkeeperScene.swift */; };
 		774EEA99223EB81E00671771 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA98223EB81E00671771 /* Global.swift */; };
 		774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9A223EBD3C00671771 /* Goalkeeper.swift */; };
 		774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9C223EBE8400671771 /* SKNode+Extension.swift */; };
 		774EEAA2223ED09000671771 /* CategoryMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAA1223ED09000671771 /* CategoryMask.swift */; };
-		774EEAA4223F22F400671771 /* FollowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAA3223F22F400671771 /* FollowComponent.swift */; };
-		774EEAA9223F250600671771 /* PursuedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAA8223F250600671771 /* PursuedComponent.swift */; };
 		774EEAAB223F2A1000671771 /* NaiveDefenseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAA223F2A0F00671771 /* NaiveDefenseComponent.swift */; };
 		774EEAAD223FE36B00671771 /* WallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAC223FE36B00671771 /* WallScene.swift */; };
 		774EEAAF2240024F00671771 /* Defender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAE2240024F00671771 /* Defender.swift */; };
@@ -132,13 +141,19 @@
 		5EF2F9AB2054BBF300191409 /* libBook_Sources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBook_Sources.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF2F9AD2054BBF300191409 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		5EF2F9B62054E6F900191409 /* Chapters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Chapters; sourceTree = "<group>"; };
+		773FB16422418D3C0065657A /* soccer_player_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer_player_back.png; sourceTree = "<group>"; };
+		773FB16522418D3C0065657A /* defender_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defender_front.png; sourceTree = "<group>"; };
+		773FB16622418D3C0065657A /* soccer_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer_field.png; sourceTree = "<group>"; };
+		773FB16722418D3D0065657A /* soccer_player_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer_player_front.png; sourceTree = "<group>"; };
+		773FB16822418D3D0065657A /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		773FB1762241967D0065657A /* goalkeeper_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goalkeeper_front.png; sourceTree = "<group>"; };
+		773FB17C2241998A0065657A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		774EEA2E223D42DC00671771 /* InitialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
 		774EEA32223D4E2B00671771 /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
 		774EEA34223D4EE600671771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		774EEA37223D4F8E00671771 /* InteractiveEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveEntity.swift; sourceTree = "<group>"; };
 		774EEA39223D50BE00671771 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		774EEA3B223D524B00671771 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
-		774EEA42223D61D400671771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		774EEA45223D65EB00671771 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		774EEA6B223D8AF200671771 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
 		774EEA6E223D8B2700671771 /* CGPoint+vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+vector.swift"; sourceTree = "<group>"; };
@@ -147,8 +162,6 @@
 		774EEA9A223EBD3C00671771 /* Goalkeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goalkeeper.swift; sourceTree = "<group>"; };
 		774EEA9C223EBE8400671771 /* SKNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKNode+Extension.swift"; sourceTree = "<group>"; };
 		774EEAA1223ED09000671771 /* CategoryMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMask.swift; sourceTree = "<group>"; };
-		774EEAA3223F22F400671771 /* FollowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowComponent.swift; sourceTree = "<group>"; };
-		774EEAA8223F250600671771 /* PursuedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PursuedComponent.swift; sourceTree = "<group>"; };
 		774EEAAA223F2A0F00671771 /* NaiveDefenseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaiveDefenseComponent.swift; sourceTree = "<group>"; };
 		774EEAAC223FE36B00671771 /* WallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallScene.swift; sourceTree = "<group>"; };
 		774EEAAE2240024F00671771 /* Defender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defender.swift; sourceTree = "<group>"; };
@@ -188,10 +201,10 @@
 			children = (
 				5E086DCF2051DF0F004D8D25 /* Manifest.plist */,
 				5EF2F9A22054BB3E00191409 /* Sources */,
+				773FB151224174510065657A /* Resources */,
 				5EF2F9792054B64800191409 /* PrivateResources */,
 				5EF2F9B62054E6F900191409 /* Chapters */,
 				5EF2F9A42054BB9500191409 /* Supporting Content */,
-				774EEA42223D61D400671771 /* Assets.xcassets */,
 			);
 			path = PlaygroundBook;
 			sourceTree = "<group>";
@@ -312,6 +325,19 @@
 			name = "Supporting Content";
 			sourceTree = "<group>";
 		};
+		773FB151224174510065657A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				773FB16822418D3D0065657A /* ball.png */,
+				773FB1762241967D0065657A /* goalkeeper_front.png */,
+				773FB16522418D3C0065657A /* defender_front.png */,
+				773FB16622418D3C0065657A /* soccer_field.png */,
+				773FB16422418D3C0065657A /* soccer_player_back.png */,
+				773FB16722418D3D0065657A /* soccer_player_front.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		774EEA2D223D42CB00671771 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,8 +366,6 @@
 				774EEA32223D4E2B00671771 /* SpriteComponent.swift */,
 				774EEA3B223D524B00671771 /* PhysicsComponent.swift */,
 				774EEA6B223D8AF200671771 /* MoveComponent.swift */,
-				774EEAA3223F22F400671771 /* FollowComponent.swift */,
-				774EEAA8223F250600671771 /* PursuedComponent.swift */,
 				774EEAAA223F2A0F00671771 /* NaiveDefenseComponent.swift */,
 			);
 			path = Components;
@@ -369,6 +393,7 @@
 			children = (
 				774EEA98223EB81E00671771 /* Global.swift */,
 				774EEAA1223ED09000671771 /* CategoryMask.swift */,
+				773FB17C2241998A0065657A /* Post.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -478,9 +503,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				773FB16922418D3D0065657A /* soccer_player_back.png in Resources */,
 				5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */,
+				773FB16B22418D3D0065657A /* defender_front.png in Resources */,
+				773FB16D22418D3D0065657A /* soccer_field.png in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
-				774EEA43223D61D400671771 /* Assets.xcassets in Resources */,
+				773FB16F22418D3D0065657A /* soccer_player_front.png in Resources */,
+				773FB1772241967D0065657A /* goalkeeper_front.png in Resources */,
+				773FB17122418D3D0065657A /* ball.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,8 +518,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774EEA44223D627A00671771 /* Assets.xcassets in Resources */,
+				773FB16A22418D3D0065657A /* soccer_player_back.png in Resources */,
+				773FB16E22418D3D0065657A /* soccer_field.png in Resources */,
+				773FB17222418D3D0065657A /* ball.png in Resources */,
+				773FB16C22418D3D0065657A /* defender_front.png in Resources */,
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
+				773FB1782241967D0065657A /* goalkeeper_front.png in Resources */,
+				773FB17022418D3D0065657A /* soccer_player_front.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +563,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				774EEA6F223D8B2700671771 /* CGPoint+vector.swift in Sources */,
-				774EEA6C223D8AF200671771 /* MoveComponent.swift in Sources */,
 				774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */,
 				774EEA3A223D50BE00671771 /* EntityManager.swift in Sources */,
 				774EEAAF2240024F00671771 /* Defender.swift in Sources */,
@@ -536,18 +570,18 @@
 				774EEAA2223ED09000671771 /* CategoryMask.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
 				774EEA99223EB81E00671771 /* Global.swift in Sources */,
-				774EEAA4223F22F400671771 /* FollowComponent.swift in Sources */,
 				774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */,
-				774EEAA9223F250600671771 /* PursuedComponent.swift in Sources */,
 				774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */,
 				774EEAAD223FE36B00671771 /* WallScene.swift in Sources */,
 				774EEA35223D4EE600671771 /* Player.swift in Sources */,
+				773FB14E22416E1C0065657A /* MoveComponent.swift in Sources */,
 				774EEAAB223F2A1000671771 /* NaiveDefenseComponent.swift in Sources */,
 				774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */,
 				774EEA46223D65EB00671771 /* Ball.swift in Sources */,
 				774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
 				774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */,
+				773FB17D2241998A0065657A /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

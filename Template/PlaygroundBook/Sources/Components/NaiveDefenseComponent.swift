@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class NaiveDefenseComponent: MoveComponent {
+public class NaiveDefenseComponent: MoveComponent {
     
     let offset: CGFloat = 150
     
@@ -16,7 +16,7 @@ class NaiveDefenseComponent: MoveComponent {
         super.init(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: radius)
     }
     
-    override func update(deltaTime seconds: TimeInterval) {
+    override public func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
         
         if behavior == nil {
