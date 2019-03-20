@@ -12,7 +12,7 @@ public class Post {
     let leftEdge: SKShapeNode
     let rightEdge: SKShapeNode
     
-    init(scene: SKScene, goalkeeper: Goalkeeper) {
+    init(scene: SKScene) {
         leftEdge = SKShapeNode(circleOfRadius: 10)
         let leftEdgeBody = SKPhysicsBody(circleOfRadius: 10)
         leftEdge.physicsBody = leftEdgeBody
@@ -35,15 +35,14 @@ public class Post {
         scene.addChildren(sequence: [leftEdge, rightEdge])
     }
     
-    func setPostEdgesPositions(scene: SKScene, goalkeeper: Goalkeeper) {
-        let offset: CGFloat = 10
-        let goalkeeperNode = goalkeeper.spriteComponent.node
+    func setPostEdgesPositions(scene: SKScene, fromPoint point: CGPoint) {
+        let offset: CGFloat = 16
         
         leftEdge.position.x = scene.frame.midX + gkMinDistance - offset
-        leftEdge.position.y = goalkeeperNode.position.y
+        leftEdge.position.y = point.y
 
         rightEdge.position.x = scene.frame.midX + gkMaxDistance + offset
-        rightEdge.position.y = goalkeeperNode.position.y
+        rightEdge.position.y = point.y
     }
     
 }

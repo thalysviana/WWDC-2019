@@ -18,6 +18,7 @@ public class WallScene: SKScene {
     private var containerNode: SKSpriteNode!
     private var post: Post!
     private var goalLine: SKShapeNode!
+    private var goalAndAreaNode: SKSpriteNode!
     
     private let initialPosition: CGPoint = .zero
     
@@ -26,22 +27,23 @@ public class WallScene: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
-    private let label = SKLabelNode()
-    
     private var numberOfDefenders = 0
     
     override init(size: CGSize) {
         super.init(size: size)
         
-        backgroundColor = .white
+        configScene()
+        
+        //        naiveDefense(goalkeeper: goalkeeper)
+    }
+    
+    private func configScene() {
         physicsWorld.contactDelegate = self
         
+        setupGoalArea()
         setupEntities()
         setupNodes()
         setupMasks()
-        
-        
-//        naiveDefense(goalkeeper: goalkeeper)
     }
     
     override public func didMove(to view: SKView) {
@@ -52,18 +54,18 @@ public class WallScene: SKScene {
         addChild(sceneBackground)
     }
     
-//    public override func didChangeSize(_ oldSize: CGSize) {
-//        super.didChangeSize(oldSize)
-//        sceneBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-//        sceneBackground.size = self.size
-//    }
-
+    //    public override func didChangeSize(_ oldSize: CGSize) {
+    //        super.didChangeSize(oldSize)
+    //        sceneBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+    //        sceneBackground.size = self.size
+    //    }
+    
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
         player = Player()
-        ball = Ball(textureName: "ball")
+        ball = Ball()
         goalkeeper = Goalkeeper(seek: ball)
-        post = Post(scene: self, goalkeeper: goalkeeper)
+        post = Post(scene: self)
         
         entityManager.add([player, ball, goalkeeper])
     }
@@ -82,13 +84,13 @@ public class WallScene: SKScene {
         addChildren(sequence: [playerNode, ballNode, goalkeeperNode, containerNode])
         
         playerNode.position = CGPoint(x: frame.midX, y: frame.midY - 200)
-        goalkeeperNode.position = CGPoint(x: frame.midX, y: frame.maxY - 160)
+        goalkeeperNode.position = CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90)
         
         ballNode.position = playerNode.position
         ballNode.isHidden = true
         
         setupWall()
-        post.setPostEdgesPositions(scene: self, goalkeeper: goalkeeper)
+        post.setPostEdgesPositions(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
         setupGoalLine()
     }
     
@@ -117,12 +119,20 @@ public class WallScene: SKScene {
         goalLine.physicsBody = SKPhysicsBody(edgeFrom: startPoint, to: endPoint)
         goalLine.physicsBody?.isDynamic = false
         goalLine.path = linePath
-//        goalLine.fillColor = .clear
-//        goalLine.strokeColor = .red
-//        goalLine.lineCap = .round
-//        goalLine.zPosition = 3
+        //        goalLine.fillColor = .clear
+        //        goalLine.strokeColor = .red
+        //        goalLine.lineCap = .round
+        //        goalLine.zPosition = 3
         
         self.addChild(goalLine)
+    }
+    
+    private func setupGoalArea() {
+        goalAndAreaNode = SKSpriteNode(imageNamed: "goal&Area")
+        addChild(goalAndAreaNode)
+        goalAndAreaNode.zPosition = 2
+        goalAndAreaNode.setScale(0.6)
+        goalAndAreaNode.position = CGPoint(x: frame.midX, y: frame.maxY - 200)
     }
     
     private func setupWall() {
@@ -265,7 +275,7 @@ extension WallScene: SKPhysicsContactDelegate {
         ballBody.velocity = CGVector(dx: 0, dy: 0)
         
         ballNode.run(SKAction.wait(forDuration: 0.5)) { [weak self] in
-
+            
             ballNode.removeFromParent()
             self?.spawnBall()
         }

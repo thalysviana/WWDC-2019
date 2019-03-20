@@ -17,7 +17,7 @@ public class Ball: InteractiveEntity {
         return component
     }()
     
-    override init(textureName: String) {
+    override init(textureName: String = "ball") {
         super.init(textureName: textureName)
         
         let spriteComponent = SpriteComponent(textureName: textureName)

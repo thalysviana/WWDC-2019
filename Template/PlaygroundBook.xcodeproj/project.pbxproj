@@ -34,6 +34,10 @@
 		773FB1782241967D0065657A /* goalkeeper_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB1762241967D0065657A /* goalkeeper_front.png */; };
 		773FB17D2241998A0065657A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773FB17C2241998A0065657A /* Post.swift */; };
 		773FB183224276950065657A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA2E3BF2056F35A00416A35 /* AppDelegate.swift */; };
+		773FB19B2242B0670065657A /* field_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB19A2242B0670065657A /* field_background.png */; };
+		773FB19C2242B0670065657A /* field_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB19A2242B0670065657A /* field_background.png */; };
+		773FB19E2242B0F30065657A /* goal&Area.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB19D2242B0F30065657A /* goal&Area.png */; };
+		773FB19F2242B0F30065657A /* goal&Area.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB19D2242B0F30065657A /* goal&Area.png */; };
 		774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA2E223D42DC00671771 /* InitialScene.swift */; };
 		774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA32223D4E2B00671771 /* SpriteComponent.swift */; };
 		774EEA35223D4EE600671771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA34223D4EE600671771 /* Player.swift */; };
@@ -148,6 +152,8 @@
 		773FB16822418D3D0065657A /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		773FB1762241967D0065657A /* goalkeeper_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goalkeeper_front.png; sourceTree = "<group>"; };
 		773FB17C2241998A0065657A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		773FB19A2242B0670065657A /* field_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field_background.png; sourceTree = "<group>"; };
+		773FB19D2242B0F30065657A /* goal&Area.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goal&Area.png"; sourceTree = "<group>"; };
 		774EEA2E223D42DC00671771 /* InitialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
 		774EEA32223D4E2B00671771 /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
 		774EEA34223D4EE600671771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -328,6 +334,8 @@
 		773FB151224174510065657A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				773FB19A2242B0670065657A /* field_background.png */,
+				773FB19D2242B0F30065657A /* goal&Area.png */,
 				773FB16822418D3D0065657A /* ball.png */,
 				773FB1762241967D0065657A /* goalkeeper_front.png */,
 				773FB16522418D3C0065657A /* defender_front.png */,
@@ -504,12 +512,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				773FB16922418D3D0065657A /* soccer_player_back.png in Resources */,
+				773FB19B2242B0670065657A /* field_background.png in Resources */,
 				5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */,
 				773FB16B22418D3D0065657A /* defender_front.png in Resources */,
 				773FB16D22418D3D0065657A /* soccer_field.png in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
 				773FB16F22418D3D0065657A /* soccer_player_front.png in Resources */,
 				773FB1772241967D0065657A /* goalkeeper_front.png in Resources */,
+				773FB19E2242B0F30065657A /* goal&Area.png in Resources */,
 				773FB17122418D3D0065657A /* ball.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +530,8 @@
 			files = (
 				773FB16A22418D3D0065657A /* soccer_player_back.png in Resources */,
 				773FB16E22418D3D0065657A /* soccer_field.png in Resources */,
+				773FB19C2242B0670065657A /* field_background.png in Resources */,
+				773FB19F2242B0F30065657A /* goal&Area.png in Resources */,
 				773FB17222418D3D0065657A /* ball.png in Resources */,
 				773FB16C22418D3D0065657A /* defender_front.png in Resources */,
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
@@ -710,7 +722,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -765,7 +777,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

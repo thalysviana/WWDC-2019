@@ -1,10 +1,11 @@
 //
-//  GameScene.swift
+//  WallScene.swift
 //  Book_Sources
 //
-//  Created by Thalys Viana on 16/03/19.
+//  Created by Thalys Viana on 18/03/19.
 //
 
+import UIKit
 import SpriteKit
 import GameplayKit
 
@@ -13,38 +14,66 @@ public class InitialScene: SKScene {
     private var entityManager: EntityManager!
     private var player: Player!
     private var ball: Ball!
+    private var post: Post!
+    private var goalLine: SKShapeNode!
+    private var goalAndAreaNode: SKSpriteNode!
     
     private let initialPosition: CGPoint = .zero
     
     private var touchLocation = CGPoint.zero
     private var touchTime: CFTimeInterval = 0
     
+    private var lastUpdateTimeInterval = TimeInterval(0)
+    
     override init(size: CGSize) {
         super.init(size: size)
         
-        backgroundColor = .white
+        configScene()
+        setupGoalkeeperScene()
+        //        naiveDefense(goalkeeper: goalkeeper)
+    }
+    
+    private func configScene() {
+        physicsWorld.contactDelegate = self
         
+        setupGoalArea()
         setupEntities()
         setupNodes()
+        setupMasks()
+    }
+    
+    func setupGoalkeeperScene() {
+        
     }
     
     override public func didMove(to view: SKView) {
         sceneBackground.zPosition = 1
         sceneBackground.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        sceneBackground.size = self.frame.size
         
         addChild(sceneBackground)
     }
     
+    //    public override func didChangeSize(_ oldSize: CGSize) {
+    //        super.didChangeSize(oldSize)
+    //        sceneBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+    //        sceneBackground.size = self.size
+    //    }
+    
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
-        player = Player(textureName: "character")
-        ball = Ball(textureName: "ball")
+        player = Player()
+        ball = Ball()
+        post = Post(scene: self)
         
         entityManager.add([player, ball])
-        entityManager.setupSpriteEntities()
     }
     
     private func setupNodes() {
+        let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        borderBody.friction = 0
+        physicsBody = borderBody
+        
         let playerNode = player.spriteComponent.node
         let ballNode = ball.spriteComponent.node
         
@@ -52,7 +81,62 @@ public class InitialScene: SKScene {
         
         playerNode.position = CGPoint(x: frame.midX, y: frame.midY - 200)
         
-        ball.spriteComponent.node.position = playerNode.position
+        ballNode.position = playerNode.position
+        ballNode.isHidden = true
+        
+        post.setPostEdgesPositions(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
+        
+        entityManager.setupSpriteEntities()
+        setupGoalLine()
+    }
+    
+    private func setupMasks() {
+        let ballBody = ball.physicsComponent.body
+        
+        ballBody.categoryBitMask = CategoryMask.ball
+        goalLine.physicsBody?.categoryBitMask = CategoryMask.goalLine
+        physicsBody?.categoryBitMask = CategoryMask.fieldEdge
+        
+        ballBody.collisionBitMask =  (CategoryMask.fieldEdge | ~CategoryMask.goalLine)
+        ballBody.contactTestBitMask = (CategoryMask.fieldEdge | CategoryMask.goalLine)
+    }
+    
+    private func setupGoalLine() {
+        let linePath = CGMutablePath()
+        let startPoint = CGPoint(x: post.leftEdge.position.x, y: post.leftEdge.position.y + 10)
+        let endPoint = CGPoint(x: post.rightEdge.position.x, y: post.rightEdge.position.y + 10)
+        
+        linePath.move(to: startPoint)
+        linePath.addLine(to: endPoint)
+        
+        goalLine = SKShapeNode(path: linePath)
+        goalLine.physicsBody = SKPhysicsBody(edgeFrom: startPoint, to: endPoint)
+        goalLine.physicsBody?.isDynamic = false
+        goalLine.path = linePath
+        //        goalLine.fillColor = .clear
+        //        goalLine.strokeColor = .red
+        //        goalLine.lineCap = .round
+        //        goalLine.zPosition = 3
+        
+        self.addChild(goalLine)
+    }
+    
+    private func setupGoalArea() {
+        goalAndAreaNode = SKSpriteNode(imageNamed: "goal&Area")
+        addChild(goalAndAreaNode)
+        goalAndAreaNode.zPosition = 2
+        goalAndAreaNode.setScale(0.6)
+        goalAndAreaNode.position = CGPoint(x: frame.midX, y: frame.maxY - 200)
+    }
+    
+    private func spawnBall() {
+        let ballNode = ball.spriteComponent.node
+        let ballBody = ball.physicsComponent.body
+        let playerNode = player.spriteComponent.node
+        addChild(ballNode)
+        
+        ballBody.linearDamping = 0
+        ballNode.position = playerNode.position
         ballNode.isHidden = true
     }
     
@@ -66,7 +150,7 @@ public class InitialScene: SKScene {
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
@@ -90,6 +174,61 @@ public class InitialScene: SKScene {
     }
     
     public override func update(_ currentTime: TimeInterval) {
+        let deltaTime = currentTime - lastUpdateTimeInterval
+        lastUpdateTimeInterval = currentTime
+        
+        entityManager.update(deltaTime)
+    }
+    
+}
+
+extension InitialScene: SKPhysicsContactDelegate {
+    public func didBegin(_ contact: SKPhysicsContact) {
+        let collision: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        let goalkeeperCollision = CategoryMask.ball | CategoryMask.goalkeeper
+        let fieldEdgeCollision = CategoryMask.ball | CategoryMask.fieldEdge
+        let goalLineCollision = CategoryMask.ball | CategoryMask.goalLine
+        
+        if collision == goalkeeperCollision {
+            print("Ball + Goalkeeper collision!")
+            ballDidCollideWithFieldAndGoalkeeper(stop: true)
+        } else if collision == fieldEdgeCollision {
+            print("Ball + Field edge collision!")
+            ballDidCollideWithFieldAndGoalkeeper(stop: false)
+        } else if collision == goalLineCollision {
+            print("Ball + Goal line collision!")
+            ballDidCollideWithGoalLine()
+        }
+    }
+    
+    func ballDidCollideWithFieldAndGoalkeeper(stop: Bool) {
+        let ballNode = ball.spriteComponent.node
+        let ballBody = ball.physicsComponent.body
+        
+        ballBody.linearDamping = 0.6
+        
+        if !stop {
+            ballBody.velocity = CGVector(dx: 0, dy: 0)
+        }
+        
+        ballNode.run(SKAction.wait(forDuration: 0.5)) { [weak self] in
+            ballNode.removeFromParent()
+            self?.spawnBall()
+        }
+    }
+    
+    func ballDidCollideWithGoalLine() {
+        let ballNode = ball.spriteComponent.node
+        let ballBody = ball.physicsComponent.body
+        
+        ballBody.linearDamping = 1.0
+        ballBody.velocity = CGVector(dx: 0, dy: 0)
+        
+        ballNode.run(SKAction.wait(forDuration: 0.5)) { [weak self] in
+            
+            ballNode.removeFromParent()
+            self?.spawnBall()
+        }
     }
     
 }

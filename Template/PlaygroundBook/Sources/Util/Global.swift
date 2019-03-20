@@ -8,7 +8,7 @@
 import SpriteKit
 
 // MARK: - Scene parameters
-let sceneBackground = SKSpriteNode(imageNamed: "soccer_field")
+let sceneBackground = SKSpriteNode(imageNamed: "field_background")
 
 // MARK: - Auxiliar convertions
 let degreesToRadians = CGFloat.pi / 180
@@ -31,7 +31,7 @@ func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeIn
     let playerNode = player.spriteComponent.node
     let ballNode = ball.spriteComponent.node
     
-    let touchTimeThreshold: CFTimeInterval = 0.4
+    let touchTimeThreshold: CFTimeInterval = 0.3
     let touchDistanceThreshold: CGFloat = 4
     
     guard CACurrentMediaTime() - touchTime < touchTimeThreshold,
@@ -90,7 +90,6 @@ func smartDefense(inScene scene: SKScene, baseLocation: CGPoint, curLocation: CG
 //            distance = gkMaxDistance
 //        }
 //    }
-
     let distance = xDelta
     
     let moveAction = SKAction.moveBy(x: distance, y: 0, duration: 0.5)

@@ -38,8 +38,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         gameView = SKView(frame: view.frame)
         view = gameView
         
-//        let scene = InitialScene(size: view.bounds.size)
-//        let scene = GoalkeeperScene(size: view.bounds.size)
+//        let scene = InitialScene(size: view.frame.size)
+//        let scene = GoalkeeperScene(size: view.frame.size)
         scene = WallScene(size: view.frame.size)
         scene.scaleMode = .aspectFill
 
