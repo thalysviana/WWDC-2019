@@ -57,7 +57,7 @@ public class WallScene: SKScene {
 //        sceneBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
 //        sceneBackground.size = self.size
 //    }
-    
+
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
         player = Player()

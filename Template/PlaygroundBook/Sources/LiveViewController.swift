@@ -20,16 +20,29 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         super.viewDidLoad()
         setupViews()
     }
-    
+
     private func setupViews() {
+        
+//        if let view = view as? SKView {
+//            scene = WallScene(size: view.frame.size)
+//            scene.scaleMode = .aspectFill
+//
+//            view.ignoresSiblingOrder = true
+//            view.showsPhysics = true
+//            view.showsFPS = true
+//            view.showsNodeCount = true
+//
+//            view.presentScene(scene)
+//
+//        }
         gameView = SKView(frame: view.frame)
-        view.addSubview(gameView)
+        view = gameView
         
 //        let scene = InitialScene(size: view.bounds.size)
 //        let scene = GoalkeeperScene(size: view.bounds.size)
         scene = WallScene(size: view.frame.size)
         scene.scaleMode = .aspectFill
-        
+
         gameView.ignoresSiblingOrder = true
         gameView.showsPhysics = true
         gameView.showsFPS = true
