@@ -27,11 +27,11 @@ let maxNumberDefenders = 4
 let minNumberDefenders = 2
 
 // MARK: - Scene commom mechanics
-func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeInterval, touchLocation: CGPoint, player: Player, ball: Ball) {
+func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeInterval, touchLocation: CGPoint, player: Player, ball: Ball, completion: (() -> Void)?) {
     let playerNode = player.spriteComponent.node
     let ballNode = ball.spriteComponent.node
     
-    let touchTimeThreshold: CFTimeInterval = 0.3
+    let touchTimeThreshold: CFTimeInterval = 0.4
     let touchDistanceThreshold: CGFloat = 4
     
     guard CACurrentMediaTime() - touchTime < touchTimeThreshold,
@@ -52,6 +52,7 @@ func shootBall(inScene scene: SKScene, atPoint pos: CGPoint, touchTime: CFTimeIn
     ballNode.isHidden = false
 
     ball.physicsComponent.body.applyForce(base)
+    completion?()
 }
 
 func naiveDefense(goalkeeper: Goalkeeper) {
@@ -77,12 +78,19 @@ func smartDefense(inScene scene: SKScene, baseLocation: CGPoint, curLocation: CG
     let point = intersectionOfLine(from: baseLocation, to: endPoint, withLineFrom: CGPoint(x: 0, y: scene.frame.maxY - gkTopDistance), to: CGPoint(x: scene.frame.maxX, y: scene.frame.maxY - gkTopDistance))
     var distance: CGFloat = point.x - scene.frame.midX
     
-    if distance < gkMinDistance {
-        distance = gkMinDistance
-    } else if distance > gkMaxDistance {
-        distance = gkMaxDistance
-    }
+    let xDeltaScenePrevLocation = abs(scene.frame.midX - prevLocation.x)
+    let xDeltaSceneCurLocation = abs(scene.frame.midX - curLocation.x)
     
+    if xDeltaScenePrevLocation <= 10 && xDeltaSceneCurLocation <= 10 {
+        distance = 0
+    } else {
+        if distance < gkMinDistance {
+            distance = gkMinDistance
+        } else if distance > gkMaxDistance {
+            distance = gkMaxDistance
+        }
+    }
+
     let moveAction = SKAction.moveBy(x: distance, y: 0, duration: 0.7)
     let reverseAction = moveAction.reversed()
     let sequenceAction = SKAction.sequence([moveAction, reverseAction])
@@ -142,6 +150,7 @@ func drawLine(startPoint: CGPoint, endPoint: CGPoint, inScene scene: SKScene, ho
     path.addLine(to: finalPoint)
     
     let line = SKShapeNode(path: path)
+    line.zPosition = 5
     line.path = path
     line.fillColor = .clear
     line.strokeColor = .red

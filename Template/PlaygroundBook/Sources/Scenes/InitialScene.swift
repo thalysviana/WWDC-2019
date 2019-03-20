@@ -70,7 +70,7 @@ public class InitialScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball)
+        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball, completion: nil)
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

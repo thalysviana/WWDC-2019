@@ -37,7 +37,7 @@ public class WallScene: SKScene {
         setupNodes()
         setupMasks()
         
-        naiveDefense(goalkeeper: goalkeeper)
+//        naiveDefense(goalkeeper: goalkeeper)
     }
     
     override public func didMove(to view: SKView) {
@@ -182,8 +182,9 @@ public class WallScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball)
-//        smartDefense(inScene: self, baseLocation: player.spriteComponent.node.position, curLocation: pos, prevLocation: touchLocation, goalkeeper: goalkeeper)
+        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
+            smartDefense(inScene: self, baseLocation: self.player.spriteComponent.node.position, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
+        }
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -107,7 +107,7 @@ public class GoalkeeperScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball)
+        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball, completion: nil)
         smartDefense(inScene: self, baseLocation: player.spriteComponent.node.position, curLocation: pos, prevLocation: touchLocation, goalkeeper: goalkeeper)
     }
     
