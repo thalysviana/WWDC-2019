@@ -14,14 +14,11 @@ import PlaygroundSupport
 public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
+    private var scene: SKScene!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-    }
-    
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
     }
     
     private func setupViews() {
@@ -30,7 +27,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         
 //        let scene = InitialScene(size: view.bounds.size)
 //        let scene = GoalkeeperScene(size: view.bounds.size)
-        let scene = WallScene(size: view.bounds.size)
+        scene = WallScene(size: view.frame.size)
         scene.scaleMode = .aspectFill
         
         gameView.ignoresSiblingOrder = true
@@ -39,6 +36,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         gameView.showsNodeCount = true
         
         gameView.presentScene(scene)
+        
     }
     
     /*

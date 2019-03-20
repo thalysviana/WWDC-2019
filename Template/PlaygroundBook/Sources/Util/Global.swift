@@ -72,26 +72,28 @@ func smartDefense(inScene scene: SKScene, baseLocation: CGPoint, curLocation: CG
     let goalkeeperNode = goalkeeper.spriteComponent.node
     
     let xDelta = curLocation.x - prevLocation.x
-    let yDelta = curLocation.y - prevLocation.y
-    let endPoint = CGPoint(x: xDelta * 10, y: yDelta * 10)
-    
-    let point = intersectionOfLine(from: baseLocation, to: endPoint, withLineFrom: CGPoint(x: 0, y: scene.frame.maxY - gkTopDistance), to: CGPoint(x: scene.frame.maxX, y: scene.frame.maxY - gkTopDistance))
-    var distance: CGFloat = point.x - scene.frame.midX
-    
-    let xDeltaScenePrevLocation = abs(scene.frame.midX - prevLocation.x)
-    let xDeltaSceneCurLocation = abs(scene.frame.midX - curLocation.x)
-    
-    if xDeltaScenePrevLocation <= 10 && xDeltaSceneCurLocation <= 10 {
-        distance = 0
-    } else {
-        if distance < gkMinDistance {
-            distance = gkMinDistance
-        } else if distance > gkMaxDistance {
-            distance = gkMaxDistance
-        }
-    }
+//    let yDelta = curLocation.y - prevLocation.y
+//    let endPoint = CGPoint(x: xDelta * 10, y: yDelta * 10)
+//
+//    let point = intersectionOfLine(from: baseLocation, to: endPoint, withLineFrom: CGPoint(x: 0, y: scene.frame.maxY - gkTopDistance), to: CGPoint(x: scene.frame.maxX, y: scene.frame.maxY - gkTopDistance))
+//    var distance: CGFloat = point.x - scene.frame.midX
+//
+//    let xDeltaScenePrevLocation = abs(scene.frame.midX - prevLocation.x)
+//    let xDeltaSceneCurLocation = abs(scene.frame.midX - curLocation.x)
+//
+//    if xDeltaScenePrevLocation <= 10 && xDeltaSceneCurLocation <= 10 {
+//        distance = 0
+//    } else {
+//        if distance < gkMinDistance {
+//            distance = gkMinDistance
+//        } else if distance > gkMaxDistance {
+//            distance = gkMaxDistance
+//        }
+//    }
 
-    let moveAction = SKAction.moveBy(x: distance, y: 0, duration: 0.7)
+    let distance = xDelta
+    
+    let moveAction = SKAction.moveBy(x: distance, y: 0, duration: 0.5)
     let reverseAction = moveAction.reversed()
     let sequenceAction = SKAction.sequence([moveAction, reverseAction])
     goalkeeperNode.run(sequenceAction)

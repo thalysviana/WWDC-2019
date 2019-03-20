@@ -10,7 +10,6 @@
 		5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
 		5E086DD32051E3A3004D8D25 /* Manifest.plist in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5E086DCF2051DF0F004D8D25 /* Manifest.plist */; };
 		5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */; };
-		5EA2E3C02056F35A00416A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA2E3BF2056F35A00416A35 /* AppDelegate.swift */; };
 		5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA2E3C82056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard */; };
 		5EA2E3D42056F36800416A35 /* libBook_Sources.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF2F9AB2054BBF300191409 /* libBook_Sources.a */; };
 		5EA2E3DA2056F8D100416A35 /* PlaygroundBluetooth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA2E3D82056F88700416A35 /* PlaygroundBluetooth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -34,6 +33,7 @@
 		773FB1772241967D0065657A /* goalkeeper_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB1762241967D0065657A /* goalkeeper_front.png */; };
 		773FB1782241967D0065657A /* goalkeeper_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB1762241967D0065657A /* goalkeeper_front.png */; };
 		773FB17D2241998A0065657A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773FB17C2241998A0065657A /* Post.swift */; };
+		773FB183224276950065657A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA2E3BF2056F35A00416A35 /* AppDelegate.swift */; };
 		774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA2E223D42DC00671771 /* InitialScene.swift */; };
 		774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA32223D4E2B00671771 /* SpriteComponent.swift */; };
 		774EEA35223D4EE600671771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA34223D4EE600671771 /* Player.swift */; };
@@ -554,7 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EA2E3C02056F35A00416A35 /* AppDelegate.swift in Sources */,
+				773FB183224276950065657A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

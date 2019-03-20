@@ -5,6 +5,7 @@
 //  Created by Thalys Viana on 18/03/19.
 //
 
+import UIKit
 import SpriteKit
 import GameplayKit
 
@@ -25,6 +26,8 @@ public class WallScene: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
+    private let label = SKLabelNode()
+    
     private var numberOfDefenders = 0
     
     override init(size: CGSize) {
@@ -37,6 +40,7 @@ public class WallScene: SKScene {
         setupNodes()
         setupMasks()
         
+        
 //        naiveDefense(goalkeeper: goalkeeper)
     }
     
@@ -47,6 +51,12 @@ public class WallScene: SKScene {
         
         addChild(sceneBackground)
     }
+    
+//    public override func didChangeSize(_ oldSize: CGSize) {
+//        super.didChangeSize(oldSize)
+//        sceneBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+//        sceneBackground.size = self.size
+//    }
     
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
