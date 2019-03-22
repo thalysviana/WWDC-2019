@@ -4,7 +4,7 @@ import SpriteKit
 
 //#-end-hidden-code
 /*:
- ## Back to normal
+ ## Fixing bugs
 
  Awesome! Our colliders are working, but we still have a few problems to be fixed, remember?
  
@@ -18,7 +18,7 @@ import SpriteKit
  
  Alright, we already have the collision detection, so let's focus in the other two things.
  
- First assign false to the goalLine's isDynamic property. This will ensure that our goal line ignores all forces applied in it.
+ First assign false to the goalLine's isDynamic property. This will ensure that our goal line ignores all forces applied on it.
  
  Then, assign a null vector to the ball's physic body property. This will be applied when the ball crosses the goal line, making it to stop.
  

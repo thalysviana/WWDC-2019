@@ -2,7 +2,11 @@
 //  LiveView.swift
 //  Book_Sources
 //
-//  Created by Thalys Viana on 22/03/19.
+//  Created by Thalys Viana on 21/03/19.
 //
 
-import Foundation
+import UIKit
+import PlaygroundSupport
+
+// Instantiate a new instance of the live view from the book's auxiliary sources and pass it to PlaygroundSupport.
+PlaygroundPage.current.liveView = ChapterThreePageOneViewController()

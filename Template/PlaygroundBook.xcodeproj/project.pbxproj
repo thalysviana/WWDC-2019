@@ -19,6 +19,7 @@
 		5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2F9AD2054BBF300191409 /* LiveViewController.swift */; };
 		5EF2F9B72054E6FB00191409 /* Chapters in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5EF2F9B62054E6F900191409 /* Chapters */; };
 		5EF2F9B82054E6FE00191409 /* Sources in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5EF2F9A52054BBB200191409 /* Sources */; };
+		771B79CE22453603009D037F /* ChapterThreePageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */; };
 		773FB14E22416E1C0065657A /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6B223D8AF200671771 /* MoveComponent.swift */; };
 		773FB16922418D3D0065657A /* soccer_player_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16422418D3C0065657A /* soccer_player_back.png */; };
 		773FB16A22418D3D0065657A /* soccer_player_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16422418D3C0065657A /* soccer_player_back.png */; };
@@ -147,6 +148,7 @@
 		5EF2F9AB2054BBF300191409 /* libBook_Sources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBook_Sources.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF2F9AD2054BBF300191409 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		5EF2F9B62054E6F900191409 /* Chapters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Chapters; sourceTree = "<group>"; };
+		771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterThreePageOneViewController.swift; sourceTree = "<group>"; };
 		773FB16422418D3C0065657A /* soccer_player_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer_player_back.png; sourceTree = "<group>"; };
 		773FB16522418D3C0065657A /* defender_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defender_front.png; sourceTree = "<group>"; };
 		773FB16622418D3C0065657A /* soccer_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer_field.png; sourceTree = "<group>"; };
@@ -335,6 +337,14 @@
 			name = "Supporting Content";
 			sourceTree = "<group>";
 		};
+		771B79CF22453661009D037F /* 2. Defense Mechanic */ = {
+			isa = PBXGroup;
+			children = (
+				774EEA96223EB80100671771 /* GoalkeeperScene.swift */,
+			);
+			path = "2. Defense Mechanic";
+			sourceTree = "<group>";
+		};
 		773FB151224174510065657A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +365,7 @@
 			children = (
 				77581597224313F000306650 /* 0. Introduction */,
 				77581598224313FD00306650 /* 1. Collisions */,
-				774EEA96223EB80100671771 /* GoalkeeperScene.swift */,
+				771B79CF22453661009D037F /* 2. Defense Mechanic */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -432,6 +442,7 @@
 				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
 				776966752244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift */,
 				776966772244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift */,
+				771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -623,6 +634,7 @@
 				774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */,
 				774EEA46223D65EB00671771 /* Ball.swift in Sources */,
 				774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */,
+				771B79CE22453603009D037F /* ChapterThreePageOneViewController.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
 				774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */,
 				773FB17D2241998A0065657A /* Post.swift in Sources */,
