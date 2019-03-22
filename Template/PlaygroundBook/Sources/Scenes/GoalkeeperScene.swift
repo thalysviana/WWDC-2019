@@ -92,7 +92,7 @@ public class GoalkeeperScene: SKScene {
         ballNode.position = playerNode.position
         ballNode.isHidden = true
         
-        post.setPostEdgesPositions(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
+        post.setPostPosition(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
         
         entityManager.setupSpriteEntities()
         setupGoalLine()

@@ -54,6 +54,8 @@
 		774EEAAB223F2A1000671771 /* NaiveDefenseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAA223F2A0F00671771 /* NaiveDefenseComponent.swift */; };
 		774EEAAD223FE36B00671771 /* WallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAC223FE36B00671771 /* WallScene.swift */; };
 		774EEAAF2240024F00671771 /* Defender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAE2240024F00671771 /* Defender.swift */; };
+		776966762244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776966752244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift */; };
+		776966782244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776966772244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -171,6 +173,8 @@
 		774EEAAA223F2A0F00671771 /* NaiveDefenseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaiveDefenseComponent.swift; sourceTree = "<group>"; };
 		774EEAAC223FE36B00671771 /* WallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallScene.swift; sourceTree = "<group>"; };
 		774EEAAE2240024F00671771 /* Defender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defender.swift; sourceTree = "<group>"; };
+		776966752244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTwoPageOneViewController.swift; sourceTree = "<group>"; };
+		776966772244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTwoPageTwoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,13 +315,13 @@
 		5EF2F9A22054BB3E00191409 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				776966742244A9BD00DCE7FB /* Controllers */,
 				774EEA6D223D8B0A00671771 /* Extensions */,
 				774EEA31223D492900671771 /* Components */,
 				774EEA30223D492200671771 /* Entities */,
 				774EEA36223D4F1300671771 /* Helpers */,
 				774EEA2D223D42CB00671771 /* Scenes */,
 				774EEA9E223ED00400671771 /* Util */,
-				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
 				5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */,
 			);
 			path = Sources;
@@ -349,9 +353,9 @@
 		774EEA2D223D42CB00671771 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				774EEA2E223D42DC00671771 /* InitialScene.swift */,
+				77581597224313F000306650 /* 0. Introduction */,
+				77581598224313FD00306650 /* 1. Collisions */,
 				774EEA96223EB80100671771 /* GoalkeeperScene.swift */,
-				774EEAAC223FE36B00671771 /* WallScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -404,6 +408,32 @@
 				773FB17C2241998A0065657A /* Post.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		77581597224313F000306650 /* 0. Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				774EEAAC223FE36B00671771 /* WallScene.swift */,
+			);
+			path = "0. Introduction";
+			sourceTree = "<group>";
+		};
+		77581598224313FD00306650 /* 1. Collisions */ = {
+			isa = PBXGroup;
+			children = (
+				774EEA2E223D42DC00671771 /* InitialScene.swift */,
+			);
+			path = "1. Collisions";
+			sourceTree = "<group>";
+		};
+		776966742244A9BD00DCE7FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
+				776966752244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift */,
+				776966772244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -577,9 +607,11 @@
 				774EEA6F223D8B2700671771 /* CGPoint+vector.swift in Sources */,
 				774EEA2F223D42DC00671771 /* InitialScene.swift in Sources */,
 				774EEA3A223D50BE00671771 /* EntityManager.swift in Sources */,
+				776966782244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift in Sources */,
 				774EEAAF2240024F00671771 /* Defender.swift in Sources */,
 				774EEA38223D4F8E00671771 /* InteractiveEntity.swift in Sources */,
 				774EEAA2223ED09000671771 /* CategoryMask.swift in Sources */,
+				776966762244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
 				774EEA99223EB81E00671771 /* Global.swift in Sources */,
 				774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */,

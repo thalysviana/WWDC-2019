@@ -9,14 +9,19 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+public enum InitialScenePage: Int {
+    case page1
+    case page2
+}
+
 public class InitialScene: SKScene {
     
     private var entityManager: EntityManager!
     private var player: Player!
     private var ball: Ball!
     private var post: Post!
-    private var goalLine: SKShapeNode!
-    private var goalAndAreaNode: SKSpriteNode!
+    private var goalLine: SKShapeNode = SKShapeNode()
+    private var goalAndAreaNode: SKSpriteNode = SKSpriteNode()
     
     private let initialPosition: CGPoint = .zero
     
@@ -25,25 +30,39 @@ public class InitialScene: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
-    override init(size: CGSize) {
+    init(size: CGSize, page: InitialScenePage) {
         super.init(size: size)
         
-        configScene()
-        setupGoalkeeperScene()
-        //        naiveDefense(goalkeeper: goalkeeper)
+        configScene(page: page)
     }
     
-    private func configScene() {
+    private func configScene(page: InitialScenePage) {
         physicsWorld.contactDelegate = self
         
-        setupGoalArea()
-        setupEntities()
-        setupNodes()
-        setupMasks()
+        switch page {
+        case .page1:
+            setupWithoutCollisions()
+        case .page2:
+            setupGoalArea()
+            setupEntities()
+            setupNodes(completion: nil)
+            setupPost()
+            setupGoalLine()
+            setupMasks()
+        }
+        
     }
     
-    func setupGoalkeeperScene() {
-        
+    func addCollisions() {
+        setupPost()
+        setupGoalLine()
+    }
+    
+    func setupWithoutCollisions() {
+        setupGoalArea()
+        setupEntities()
+        setupNodes(completion: nil)
+        setupMasks()
     }
     
     override public func didMove(to view: SKView) {
@@ -69,7 +88,7 @@ public class InitialScene: SKScene {
         entityManager.add([player, ball])
     }
     
-    private func setupNodes() {
+    private func setupNodes(completion: (() -> Void)?) {
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         borderBody.friction = 0
         physicsBody = borderBody
@@ -84,10 +103,12 @@ public class InitialScene: SKScene {
         ballNode.position = playerNode.position
         ballNode.isHidden = true
         
-        post.setPostEdgesPositions(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
-        
         entityManager.setupSpriteEntities()
-        setupGoalLine()
+        completion?()
+    }
+    
+    private func setupPost() {
+        post.setPostPosition(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
     }
     
     private func setupMasks() {
@@ -116,7 +137,7 @@ public class InitialScene: SKScene {
         //        goalLine.fillColor = .clear
         //        goalLine.strokeColor = .red
         //        goalLine.lineCap = .round
-        //        goalLine.zPosition = 3
+//                goalLine.zPosition = 3
         
         self.addChild(goalLine)
     }

@@ -53,13 +53,7 @@ public class WallScene: SKScene {
         
         addChild(sceneBackground)
     }
-    
-    //    public override func didChangeSize(_ oldSize: CGSize) {
-    //        super.didChangeSize(oldSize)
-    //        sceneBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-    //        sceneBackground.size = self.size
-    //    }
-    
+
     private func setupEntities() {
         entityManager = EntityManager(scene: self)
         player = Player()
@@ -90,7 +84,7 @@ public class WallScene: SKScene {
         ballNode.isHidden = true
         
         setupWall()
-        post.setPostEdgesPositions(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
+        post.setPostPosition(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
         setupGoalLine()
     }
     

@@ -35,7 +35,7 @@ public class Post {
         scene.addChildren(sequence: [leftEdge, rightEdge])
     }
     
-    func setPostEdgesPositions(scene: SKScene, fromPoint point: CGPoint) {
+    func setPostPosition(scene: SKScene, fromPoint point: CGPoint) {
         let offset: CGFloat = 16
         
         leftEdge.position.x = scene.frame.midX + gkMinDistance - offset
