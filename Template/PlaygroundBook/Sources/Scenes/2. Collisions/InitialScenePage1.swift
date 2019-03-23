@@ -9,12 +9,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-public enum InitialScenePage: Int {
-    case page1
-    case page2
-}
-
-public class InitialScene: SKScene {
+public class InitialScenePage1: SKScene {
     
     private var entityManager: EntityManager!
     private var player: Player!
@@ -30,27 +25,16 @@ public class InitialScene: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
-    init(size: CGSize, page: InitialScenePage) {
+    override init(size: CGSize) {
         super.init(size: size)
         
-        configScene(page: page)
+        configScene()
     }
     
-    private func configScene(page: InitialScenePage) {
+    private func configScene() {
         physicsWorld.contactDelegate = self
-        
-        switch page {
-        case .page1:
-            setupWithoutCollisions()
-        case .page2:
-            setupGoalArea()
-            setupEntities()
-            setupNodes(completion: nil)
-            setupPost()
-            setupGoalLine()
-            setupMasks()
-        }
-        
+
+        setupWithoutCollisions()
     }
     
     func addCollisions() {
@@ -138,7 +122,7 @@ public class InitialScene: SKScene {
         //        goalLine.fillColor = .clear
         //        goalLine.strokeColor = .red
         //        goalLine.lineCap = .round
-//                goalLine.zPosition = 3
+        //                goalLine.zPosition = 3
         
         self.addChild(goalLine)
     }
@@ -204,7 +188,7 @@ public class InitialScene: SKScene {
     
 }
 
-extension InitialScene: SKPhysicsContactDelegate {
+extension InitialScenePage1: SKPhysicsContactDelegate {
     public func didBegin(_ contact: SKPhysicsContact) {
         let collision: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         let goalkeeperCollision = CategoryMask.ball | CategoryMask.goalkeeper

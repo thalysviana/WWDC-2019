@@ -14,7 +14,7 @@ import PlaygroundSupport
 public class ChapterOnePageOneViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
-    private var scene: SKScene!
+    private var scene: WallScene!
     
     public override func viewDidLoad() {
         super.viewDidLoad()

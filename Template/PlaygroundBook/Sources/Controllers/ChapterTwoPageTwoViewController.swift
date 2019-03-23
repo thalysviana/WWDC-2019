@@ -14,7 +14,7 @@ import PlaygroundSupport
 public class ChapterTwoPageTwoViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
-    private var scene: SKScene!
+    private var scene: InitialScenePage2!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ public class ChapterTwoPageTwoViewController: UIViewController, PlaygroundLiveVi
         
         //        let scene = InitialScene(size: view.frame.size)
         //        let scene = GoalkeeperScene(size: view.frame.size)
-        scene = InitialScene(size: view.frame.size, page: .page2)
+        scene = InitialScenePage2(size: view.frame.size)
         scene.scaleMode = .aspectFill
         
         gameView.ignoresSiblingOrder = true
