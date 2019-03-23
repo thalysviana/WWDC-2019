@@ -10,11 +10,11 @@ import UIKit
 import SpriteKit
 import PlaygroundSupport
 
-@objc(Book_Sources_ChapterTwoPageOneViewController)
-public class ChapterTwoPageOneViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
+@objc(Book_Sources_ChapterThreePageTwoViewController)
+public class ChapterThreePageTwoViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
-    private var scene: InitialScene!
+    private var scene: SKScene!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,7 @@ public class ChapterTwoPageOneViewController: UIViewController, PlaygroundLiveVi
         view = gameView
         
         //        let scene = InitialScene(size: view.frame.size)
-        //        let scene = GoalkeeperScene(size: view.frame.size)
-        scene = InitialScene(size: view.frame.size, page: .page1)
+        let scene = GoalkeeperScenePage2(size: view.frame.size)
         scene.scaleMode = .aspectFill
         
         gameView.ignoresSiblingOrder = true
@@ -71,10 +70,5 @@ public class ChapterTwoPageOneViewController: UIViewController, PlaygroundLiveVi
         // Implement this method to receive messages sent from the process running Contents.swift.
         // This method is *required* by the PlaygroundLiveViewMessageHandler protocol.
         // Use this method to decode any messages sent as PlaygroundValue values and respond accordingly.
-        
-        guard case let .string(function) = message else { return }
-        if function == "addCollisions" {
-            scene.addCollisions()
-        }
     }
 }

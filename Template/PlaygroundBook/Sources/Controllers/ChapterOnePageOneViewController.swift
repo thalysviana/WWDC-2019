@@ -10,8 +10,8 @@ import UIKit
 import SpriteKit
 import PlaygroundSupport
 
-@objc(Book_Sources_LiveViewController)
-public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
+@objc(Book_Sources_ChapterOnePageOneViewController)
+public class ChapterOnePageOneViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
     private var scene: SKScene!
@@ -44,9 +44,9 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         scene.scaleMode = .aspectFill
 
         gameView.ignoresSiblingOrder = true
-        gameView.showsPhysics = true
-        gameView.showsFPS = true
-        gameView.showsNodeCount = true
+        gameView.showsPhysics = false
+        gameView.showsFPS = false
+        gameView.showsNodeCount = false
         
         gameView.presentScene(scene)
         

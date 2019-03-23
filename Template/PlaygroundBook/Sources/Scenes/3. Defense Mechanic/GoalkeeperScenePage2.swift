@@ -9,19 +9,15 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-public enum InitialScenePage: Int {
-    case page1
-    case page2
-}
-
-public class InitialScene: SKScene {
+public class GoalkeeperScenePage2: SKScene {
     
     private var entityManager: EntityManager!
     private var player: Player!
     private var ball: Ball!
+    private var goalkeeper: Goalkeeper!
     private var post: Post!
-    private var goalLine: SKShapeNode = SKShapeNode()
-    private var goalAndAreaNode: SKSpriteNode = SKSpriteNode()
+    private var goalLine: SKShapeNode!
+    private var goalAndAreaNode: SKSpriteNode!
     
     private let initialPosition: CGPoint = .zero
     
@@ -30,38 +26,19 @@ public class InitialScene: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
-    init(size: CGSize, page: InitialScenePage) {
+    override init(size: CGSize) {
         super.init(size: size)
         
-        configScene(page: page)
+        configScene()
+        //        naiveDefense(goalkeeper: goalkeeper)
     }
     
-    private func configScene(page: InitialScenePage) {
+    private func configScene() {
         physicsWorld.contactDelegate = self
         
-        switch page {
-        case .page1:
-            setupWithoutCollisions()
-        case .page2:
-            setupGoalArea()
-            setupEntities()
-            setupNodes(completion: nil)
-            setupPost()
-            setupGoalLine()
-            setupMasks()
-        }
-        
-    }
-    
-    func addCollisions() {
-        setupPost()
-        setupGoalLine()
-    }
-    
-    func setupWithoutCollisions() {
         setupGoalArea()
         setupEntities()
-        setupNodes(completion: nil)
+        setupNodes()
         setupMasks()
     }
     
@@ -83,43 +60,50 @@ public class InitialScene: SKScene {
         entityManager = EntityManager(scene: self)
         player = Player()
         ball = Ball()
+        goalkeeper = Goalkeeper(seek: ball)
         post = Post(scene: self)
         
-        entityManager.add([player, ball])
+        entityManager.add([player, ball, goalkeeper])
     }
     
-    private func setupNodes(completion: (() -> Void)?) {
+    private func addGoalkeeper() {
+        
+    }
+    
+    private func setupNodes() {
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         borderBody.friction = 0
         physicsBody = borderBody
         
         let playerNode = player.spriteComponent.node
         let ballNode = ball.spriteComponent.node
+        let goalkeeperNode = goalkeeper.spriteComponent.node
         
-        addChildren(sequence: [playerNode, ballNode])
+        addChildren(sequence: [playerNode, ballNode, goalkeeperNode])
         
         playerNode.position = CGPoint(x: frame.midX, y: frame.midY - 200)
+        goalkeeperNode.position = CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90)
         
         ballNode.position = playerNode.position
         ballNode.isHidden = true
         
-        entityManager.setupSpriteEntities()
-        completion?()
-    }
-    
-    private func setupPost() {
         post.setPostPosition(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
+        
+        entityManager.setupSpriteEntities()
+        setupGoalLine()
     }
     
     private func setupMasks() {
         let ballBody = ball.physicsComponent.body
+        let goalkeeperBody = goalkeeper.physicsComponent.body
         
+        goalkeeperBody.categoryBitMask = CategoryMask.goalkeeper
         ballBody.categoryBitMask = CategoryMask.ball
         goalLine.physicsBody?.categoryBitMask = CategoryMask.goalLine
         physicsBody?.categoryBitMask = CategoryMask.fieldEdge
         
-        ballBody.collisionBitMask =  (CategoryMask.fieldEdge | ~CategoryMask.goalLine)
-        ballBody.contactTestBitMask = (CategoryMask.fieldEdge | CategoryMask.goalLine)
+        ballBody.collisionBitMask = (CategoryMask.goalkeeper | CategoryMask.fieldEdge | ~CategoryMask.goalLine)
+        ballBody.contactTestBitMask = (CategoryMask.goalkeeper | CategoryMask.fieldEdge | CategoryMask.goalLine)
     }
     
     private func setupGoalLine() {
@@ -137,7 +121,7 @@ public class InitialScene: SKScene {
         //        goalLine.fillColor = .clear
         //        goalLine.strokeColor = .red
         //        goalLine.lineCap = .round
-//                goalLine.zPosition = 3
+        //        goalLine.zPosition = 3
         
         self.addChild(goalLine)
     }
@@ -175,7 +159,9 @@ public class InitialScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball, completion: nil)
+        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
+            smartDefense(inScene: self, baseLocation: self.player.spriteComponent.node.position, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
+        }
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,7 +189,7 @@ public class InitialScene: SKScene {
     
 }
 
-extension InitialScene: SKPhysicsContactDelegate {
+extension GoalkeeperScenePage2: SKPhysicsContactDelegate {
     public func didBegin(_ contact: SKPhysicsContact) {
         let collision: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         let goalkeeperCollision = CategoryMask.ball | CategoryMask.goalkeeper

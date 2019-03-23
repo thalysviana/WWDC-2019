@@ -16,10 +16,12 @@
 		5EA2E3DB2056F8D100416A35 /* PlaygroundSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA2E3D72056F88700416A35 /* PlaygroundSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EBEC2F0205B399300975D3F /* LiveViewHost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBEC2EF205B396500975D3F /* LiveViewHost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5EF2F97E2054B6E400191409 /* ManifestPlist.strings */; };
-		5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2F9AD2054BBF300191409 /* LiveViewController.swift */; };
+		5EF2F9AE2054BBF300191409 /* ChapterOnePageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2F9AD2054BBF300191409 /* ChapterOnePageOneViewController.swift */; };
 		5EF2F9B72054E6FB00191409 /* Chapters in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5EF2F9B62054E6F900191409 /* Chapters */; };
 		5EF2F9B82054E6FE00191409 /* Sources in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5EF2F9A52054BBB200191409 /* Sources */; };
 		771B79CE22453603009D037F /* ChapterThreePageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */; };
+		771B79D122455DF6009D037F /* GoalkeeperScenePage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B79D022455DF6009D037F /* GoalkeeperScenePage2.swift */; };
+		771B79D322455E51009D037F /* ChapterThreePageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B79D222455E51009D037F /* ChapterThreePageTwoViewController.swift */; };
 		773FB14E22416E1C0065657A /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6B223D8AF200671771 /* MoveComponent.swift */; };
 		773FB16922418D3D0065657A /* soccer_player_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16422418D3C0065657A /* soccer_player_back.png */; };
 		773FB16A22418D3D0065657A /* soccer_player_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 773FB16422418D3C0065657A /* soccer_player_back.png */; };
@@ -47,7 +49,7 @@
 		774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA3B223D524B00671771 /* PhysicsComponent.swift */; };
 		774EEA46223D65EB00671771 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA45223D65EB00671771 /* Ball.swift */; };
 		774EEA6F223D8B2700671771 /* CGPoint+vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA6E223D8B2700671771 /* CGPoint+vector.swift */; };
-		774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA96223EB80100671771 /* GoalkeeperScene.swift */; };
+		774EEA97223EB80100671771 /* GoalkeeperScenePage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA96223EB80100671771 /* GoalkeeperScenePage1.swift */; };
 		774EEA99223EB81E00671771 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA98223EB81E00671771 /* Global.swift */; };
 		774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9A223EBD3C00671771 /* Goalkeeper.swift */; };
 		774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEA9C223EBE8400671771 /* SKNode+Extension.swift */; };
@@ -57,6 +59,13 @@
 		774EEAAF2240024F00671771 /* Defender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774EEAAE2240024F00671771 /* Defender.swift */; };
 		776966762244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776966752244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift */; };
 		776966782244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776966772244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift */; };
+		77B808DF2246329A00941A35 /* swipe_graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808DE2246329A00941A35 /* swipe_graphic.png */; };
+		77B808E02246329A00941A35 /* swipe_graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808DE2246329A00941A35 /* swipe_graphic.png */; };
+		77B808E222463B9C00941A35 /* ChapterFourPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B808E122463B9C00941A35 /* ChapterFourPageOneViewController.swift */; };
+		77B808E322463B9C00941A35 /* ChapterFourPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B808E122463B9C00941A35 /* ChapterFourPageOneViewController.swift */; };
+		77B808E622463C9800941A35 /* WallScenePage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B808E522463C9800941A35 /* WallScenePage1.swift */; };
+		77B808EE22464D0C00941A35 /* the_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808ED22464D0C00941A35 /* the_wall.png */; };
+		77B808EF22464D0C00941A35 /* the_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808ED22464D0C00941A35 /* the_wall.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -146,9 +155,11 @@
 		5EF2F97D2054B6E400191409 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManifestPlist.strings; sourceTree = "<group>"; };
 		5EF2F9A52054BBB200191409 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 		5EF2F9AB2054BBF300191409 /* libBook_Sources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBook_Sources.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5EF2F9AD2054BBF300191409 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		5EF2F9AD2054BBF300191409 /* ChapterOnePageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterOnePageOneViewController.swift; sourceTree = "<group>"; };
 		5EF2F9B62054E6F900191409 /* Chapters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Chapters; sourceTree = "<group>"; };
 		771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterThreePageOneViewController.swift; sourceTree = "<group>"; };
+		771B79D022455DF6009D037F /* GoalkeeperScenePage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalkeeperScenePage2.swift; sourceTree = "<group>"; };
+		771B79D222455E51009D037F /* ChapterThreePageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterThreePageTwoViewController.swift; sourceTree = "<group>"; };
 		773FB16422418D3C0065657A /* soccer_player_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer_player_back.png; sourceTree = "<group>"; };
 		773FB16522418D3C0065657A /* defender_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defender_front.png; sourceTree = "<group>"; };
 		773FB16622418D3C0065657A /* soccer_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer_field.png; sourceTree = "<group>"; };
@@ -167,7 +178,7 @@
 		774EEA45223D65EB00671771 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		774EEA6B223D8AF200671771 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
 		774EEA6E223D8B2700671771 /* CGPoint+vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+vector.swift"; sourceTree = "<group>"; };
-		774EEA96223EB80100671771 /* GoalkeeperScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalkeeperScene.swift; sourceTree = "<group>"; };
+		774EEA96223EB80100671771 /* GoalkeeperScenePage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalkeeperScenePage1.swift; sourceTree = "<group>"; };
 		774EEA98223EB81E00671771 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		774EEA9A223EBD3C00671771 /* Goalkeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goalkeeper.swift; sourceTree = "<group>"; };
 		774EEA9C223EBE8400671771 /* SKNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKNode+Extension.swift"; sourceTree = "<group>"; };
@@ -177,6 +188,10 @@
 		774EEAAE2240024F00671771 /* Defender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defender.swift; sourceTree = "<group>"; };
 		776966752244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTwoPageOneViewController.swift; sourceTree = "<group>"; };
 		776966772244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTwoPageTwoViewController.swift; sourceTree = "<group>"; };
+		77B808DE2246329A00941A35 /* swipe_graphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe_graphic.png; sourceTree = "<group>"; };
+		77B808E122463B9C00941A35 /* ChapterFourPageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterFourPageOneViewController.swift; sourceTree = "<group>"; };
+		77B808E522463C9800941A35 /* WallScenePage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallScenePage1.swift; sourceTree = "<group>"; };
+		77B808ED22464D0C00941A35 /* the_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = the_wall.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,18 +352,21 @@
 			name = "Supporting Content";
 			sourceTree = "<group>";
 		};
-		771B79CF22453661009D037F /* 2. Defense Mechanic */ = {
+		771B79CF22453661009D037F /* 3. Defense Mechanic */ = {
 			isa = PBXGroup;
 			children = (
-				774EEA96223EB80100671771 /* GoalkeeperScene.swift */,
+				774EEA96223EB80100671771 /* GoalkeeperScenePage1.swift */,
+				771B79D022455DF6009D037F /* GoalkeeperScenePage2.swift */,
 			);
-			path = "2. Defense Mechanic";
+			path = "3. Defense Mechanic";
 			sourceTree = "<group>";
 		};
 		773FB151224174510065657A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				773FB19A2242B0670065657A /* field_background.png */,
+				77B808DE2246329A00941A35 /* swipe_graphic.png */,
+				77B808ED22464D0C00941A35 /* the_wall.png */,
 				773FB19D2242B0F30065657A /* goal&Area.png */,
 				773FB16822418D3D0065657A /* ball.png */,
 				773FB1762241967D0065657A /* goalkeeper_front.png */,
@@ -363,9 +381,10 @@
 		774EEA2D223D42CB00671771 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				77581597224313F000306650 /* 0. Introduction */,
-				77581598224313FD00306650 /* 1. Collisions */,
-				771B79CF22453661009D037F /* 2. Defense Mechanic */,
+				77581597224313F000306650 /* 1. Introduction */,
+				77581598224313FD00306650 /* 2. Collisions */,
+				771B79CF22453661009D037F /* 3. Defense Mechanic */,
+				77B808E422463BD000941A35 /* 4. Wall */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -420,31 +439,41 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		77581597224313F000306650 /* 0. Introduction */ = {
+		77581597224313F000306650 /* 1. Introduction */ = {
 			isa = PBXGroup;
 			children = (
 				774EEAAC223FE36B00671771 /* WallScene.swift */,
 			);
-			path = "0. Introduction";
+			path = "1. Introduction";
 			sourceTree = "<group>";
 		};
-		77581598224313FD00306650 /* 1. Collisions */ = {
+		77581598224313FD00306650 /* 2. Collisions */ = {
 			isa = PBXGroup;
 			children = (
 				774EEA2E223D42DC00671771 /* InitialScene.swift */,
 			);
-			path = "1. Collisions";
+			path = "2. Collisions";
 			sourceTree = "<group>";
 		};
 		776966742244A9BD00DCE7FB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
+				5EF2F9AD2054BBF300191409 /* ChapterOnePageOneViewController.swift */,
 				776966752244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift */,
 				776966772244C43600DCE7FB /* ChapterTwoPageTwoViewController.swift */,
 				771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */,
+				771B79D222455E51009D037F /* ChapterThreePageTwoViewController.swift */,
+				77B808E122463B9C00941A35 /* ChapterFourPageOneViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		77B808E422463BD000941A35 /* 4. Wall */ = {
+			isa = PBXGroup;
+			children = (
+				77B808E522463C9800941A35 /* WallScenePage1.swift */,
+			);
+			path = "4. Wall";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,9 +588,11 @@
 				773FB16D22418D3D0065657A /* soccer_field.png in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
 				773FB16F22418D3D0065657A /* soccer_player_front.png in Resources */,
+				77B808EE22464D0C00941A35 /* the_wall.png in Resources */,
 				773FB1772241967D0065657A /* goalkeeper_front.png in Resources */,
 				773FB19E2242B0F30065657A /* goal&Area.png in Resources */,
 				773FB17122418D3D0065657A /* ball.png in Resources */,
+				77B808DF2246329A00941A35 /* swipe_graphic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +602,7 @@
 			files = (
 				773FB16A22418D3D0065657A /* soccer_player_back.png in Resources */,
 				773FB16E22418D3D0065657A /* soccer_field.png in Resources */,
+				77B808EF22464D0C00941A35 /* the_wall.png in Resources */,
 				773FB19C2242B0670065657A /* field_background.png in Resources */,
 				773FB19F2242B0F30065657A /* goal&Area.png in Resources */,
 				773FB17222418D3D0065657A /* ball.png in Resources */,
@@ -578,6 +610,7 @@
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
 				773FB1782241967D0065657A /* goalkeeper_front.png in Resources */,
 				773FB17022418D3D0065657A /* soccer_player_front.png in Resources */,
+				77B808E02246329A00941A35 /* swipe_graphic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				773FB183224276950065657A /* AppDelegate.swift in Sources */,
+				77B808E322463B9C00941A35 /* ChapterFourPageOneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +658,7 @@
 				774EEAA2223ED09000671771 /* CategoryMask.swift in Sources */,
 				776966762244AA0000DCE7FB /* ChapterTwoPageOneViewController.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
+				771B79D122455DF6009D037F /* GoalkeeperScenePage2.swift in Sources */,
 				774EEA99223EB81E00671771 /* Global.swift in Sources */,
 				774EEA33223D4E2B00671771 /* SpriteComponent.swift in Sources */,
 				774EEA9B223EBD3C00671771 /* Goalkeeper.swift in Sources */,
@@ -631,11 +666,14 @@
 				774EEA35223D4EE600671771 /* Player.swift in Sources */,
 				773FB14E22416E1C0065657A /* MoveComponent.swift in Sources */,
 				774EEAAB223F2A1000671771 /* NaiveDefenseComponent.swift in Sources */,
-				774EEA97223EB80100671771 /* GoalkeeperScene.swift in Sources */,
+				77B808E222463B9C00941A35 /* ChapterFourPageOneViewController.swift in Sources */,
+				771B79D322455E51009D037F /* ChapterThreePageTwoViewController.swift in Sources */,
+				774EEA97223EB80100671771 /* GoalkeeperScenePage1.swift in Sources */,
 				774EEA46223D65EB00671771 /* Ball.swift in Sources */,
 				774EEA9D223EBE8400671771 /* SKNode+Extension.swift in Sources */,
 				771B79CE22453603009D037F /* ChapterThreePageOneViewController.swift in Sources */,
-				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
+				77B808E622463C9800941A35 /* WallScenePage1.swift in Sources */,
+				5EF2F9AE2054BBF300191409 /* ChapterOnePageOneViewController.swift in Sources */,
 				774EEA3C223D524B00671771 /* PhysicsComponent.swift in Sources */,
 				773FB17D2241998A0065657A /* Post.swift in Sources */,
 			);

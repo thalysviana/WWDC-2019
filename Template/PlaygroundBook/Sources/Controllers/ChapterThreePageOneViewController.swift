@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import PlaygroundSupport
 
-@objc(Book_Sources_ChapterTwoPageTwoViewController)
+@objc(Book_Sources_ChapterThreePageOneViewController)
 public class ChapterThreePageOneViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
@@ -39,7 +39,7 @@ public class ChapterThreePageOneViewController: UIViewController, PlaygroundLive
         view = gameView
         
         //        let scene = InitialScene(size: view.frame.size)
-                let scene = GoalkeeperScene(size: view.frame.size)
+        let scene = GoalkeeperScenePage1(size: view.frame.size)
         scene.scaleMode = .aspectFill
         
         gameView.ignoresSiblingOrder = true
