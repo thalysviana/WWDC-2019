@@ -38,7 +38,6 @@ public class InitialScenePage1: SKScene {
     }
     
     func addCollisions() {
-        goalLine.physicsBody?.isDynamic = true
         setupPost()
         setupGoalLine()
     }

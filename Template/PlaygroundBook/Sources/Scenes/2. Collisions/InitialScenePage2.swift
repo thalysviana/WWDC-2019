@@ -25,6 +25,8 @@ public class InitialScenePage2: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
+    var goalLineCollision = false
+    
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -37,14 +39,21 @@ public class InitialScenePage2: SKScene {
         setupGoalArea()
         setupEntities()
         setupNodes(completion: nil)
+        setupMasks()
         setupPost()
         setupGoalLine()
-        setupMasks()
         
     }
     
+    func nullifyBallsVelocity() {
+        goalLineCollision = true
+    }
+    
+    func detectCollisions() {
+        setupMasks()
+    }
+    
     func addCollisions() {
-        goalLine.physicsBody?.isDynamic = true
         setupPost()
         setupGoalLine()
     }
@@ -234,7 +243,10 @@ extension InitialScenePage2: SKPhysicsContactDelegate {
         let ballBody = ball.physicsComponent.body
         
         ballBody.linearDamping = 1.0
-        ballBody.velocity = CGVector(dx: 0, dy: 0)
+        
+        if goalLineCollision {
+            ballBody.velocity = .zero
+        }
         
         ballNode.run(SKAction.wait(forDuration: 0.5)) { [weak self] in
             

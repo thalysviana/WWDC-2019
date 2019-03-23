@@ -71,5 +71,15 @@ public class ChapterTwoPageTwoViewController: UIViewController, PlaygroundLiveVi
         // Implement this method to receive messages sent from the process running Contents.swift.
         // This method is *required* by the PlaygroundLiveViewMessageHandler protocol.
         // Use this method to decode any messages sent as PlaygroundValue values and respond accordingly.
+        guard case let .string(function) = message else { return }
+        
+        switch function {
+        case "detectCollisions":
+            scene.detectCollisions()
+        case "nullifyBallsVelocity":
+            scene.nullifyBallsVelocity()
+        default:
+            scene.nullifyBallsVelocity()
+        }
     }
 }
