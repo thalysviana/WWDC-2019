@@ -19,7 +19,7 @@ func moveGoalkeeper(duration: time) {
 //:
 //: ## Math is the answer!
 //:
-//: Ok, it's time to make our goalkeeper even smarter!
+//: Ok, it's time to make our goalkeeper smarter!
 //:
 //: This time we're going to use math and trigonometry to help us move our character. The idea now is to make our goalkeeper "guess" on which direction our shoot will go.
 //:
@@ -39,7 +39,7 @@ func moveGoalkeeper(duration: time) {
 //:
 //: ## Exercise time!
 //:
-//: Alright! For this practice some calculations like the xDelta were already done for us. So let's jump right into the fun part.
+//: Alright! For this practice some calculations were already done for us. So let's jump right into the fun part.
 //:
 //:
 //: - Experiment:

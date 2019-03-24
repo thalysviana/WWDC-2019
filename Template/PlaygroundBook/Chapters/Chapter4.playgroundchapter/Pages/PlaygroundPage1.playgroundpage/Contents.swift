@@ -20,7 +20,7 @@ func setWallPosition() {
 //:
 //: ![alt text](the_wall.png)
 //:
-//: The random position generation of the wall is very easy to do. But we must take care with it.
+//: The random position generation of the wall is a very easy to do thing. But we must take care with it.
 //:
 //: The place where we put the wall is a key thing in our game. Depending on the number of players it might be impossible to score a goal.
 //:
@@ -31,7 +31,7 @@ func setWallPosition() {
 //: ## Practice time!
 //: - Experiment:
 //:     Time to finish the game!
-//:     1. Set walls positions using `setWallPosition()` 
+//:     1. Set wall position using `setWallPosition()` 
 //:     3. Click on `run code` to see what happens.
 //:
 //#-code-completion(everything, hide)

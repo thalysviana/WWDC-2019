@@ -19,7 +19,7 @@ func nullifyBallsVelocity() {
 //#-end-hidden-code
 //: ## Fixing bugs
 //:
-//: Awesome! Our colliders are working, but we still have a few problems to be fixed, remember?
+//: Our colliders are working, but we still have a few problems to be fixed, remember?
 //:
 //: The ball continues to rebound in our direction, but what we want is that it stops when it crosses the goal line.
 //:

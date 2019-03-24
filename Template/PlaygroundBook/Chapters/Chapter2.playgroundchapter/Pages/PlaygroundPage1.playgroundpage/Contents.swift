@@ -28,7 +28,7 @@ func addCollisions(){
 //#-code-completion(identifier, show, addCollisions())
 /*#-editable-code Tap to write your code*//*#-end-editable-code*/
 //:
-//:Interesting, isn't it? Now the ball reacts to the other objects in our game.
+//:Interesting, isn't it? Now the ball reacts to other objects in our game.
 //:
 //: However, you may have noticed a new problem. The ball is bouncing in our direction every time we throw it towards the goal.
 //:
