@@ -197,7 +197,7 @@ public class WallScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
-            smartDefense(inScene: self, baseLocation: self.player.spriteComponent.node.position, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
+            smartDefense(inScene: self, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
         }
     }
     

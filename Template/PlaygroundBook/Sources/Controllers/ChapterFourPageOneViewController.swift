@@ -14,7 +14,7 @@ import PlaygroundSupport
 public class ChapterFourPageOneViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
-    private var scene: SKScene!
+    private var scene: WallScenePage1!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,5 +70,11 @@ public class ChapterFourPageOneViewController: UIViewController, PlaygroundLiveV
         // Implement this method to receive messages sent from the process running Contents.swift.
         // This method is *required* by the PlaygroundLiveViewMessageHandler protocol.
         // Use this method to decode any messages sent as PlaygroundValue values and respond accordingly.
+        let scene = gameView.scene as! WallScenePage1
+        guard case let .string(function) = message else { return }
+        if function == "setWallPosition" {
+            scene.setWallPosition()
+            scene.hasAddWall = true
+        }
     }
 }

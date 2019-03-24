@@ -14,12 +14,20 @@ import PlaygroundSupport
 public class ChapterThreePageTwoViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
-    private var scene: SKScene!
+    var scene: GoalkeeperScenePage2!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
+    
+    lazy var mylabel: UILabel = {
+        let label = UILabel()
+        label.text = "Scene is nil"
+        label.isHidden = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     private func setupViews() {
         
@@ -37,6 +45,13 @@ public class ChapterThreePageTwoViewController: UIViewController, PlaygroundLive
         //        }
         gameView = SKView(frame: view.frame)
         view = gameView
+        
+        view.addSubview(mylabel)
+        
+        NSLayoutConstraint.activate([
+            mylabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mylabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
         
         //        let scene = InitialScene(size: view.frame.size)
         let scene = GoalkeeperScenePage2(size: view.frame.size)
@@ -70,5 +85,19 @@ public class ChapterThreePageTwoViewController: UIViewController, PlaygroundLive
         // Implement this method to receive messages sent from the process running Contents.swift.
         // This method is *required* by the PlaygroundLiveViewMessageHandler protocol.
         // Use this method to decode any messages sent as PlaygroundValue values and respond accordingly.
+        let scene = gameView.scene as! GoalkeeperScenePage2
+        let goalkeeperNode = scene.goalkeeper.spriteComponent.node
+
+        switch message {
+        case .floatingPoint(let value):
+//            mylabel.text = "\(value)"
+//            mylabel.isHidden = false
+            goalkeeperNode.removeAllActions()
+            scene.moveGoalkeeper(duration: value)
+        default:
+//            mylabel.text = "No value"
+            goalkeeperNode.removeAllActions()
+            scene.moveGoalkeeper(duration: 1.0)
+        }
     }
 }

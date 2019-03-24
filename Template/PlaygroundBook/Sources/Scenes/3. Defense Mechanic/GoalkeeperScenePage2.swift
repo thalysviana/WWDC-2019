@@ -14,15 +14,21 @@ public class GoalkeeperScenePage2: SKScene {
     private var entityManager: EntityManager!
     private var player: Player!
     private var ball: Ball!
-    private var goalkeeper: Goalkeeper!
+    var goalkeeper: Goalkeeper!
     private var post: Post!
     private var goalLine: SKShapeNode!
     private var goalAndAreaNode: SKSpriteNode!
     
     private let initialPosition: CGPoint = .zero
     
+    private var lockBall = false
+    
     private var touchLocation = CGPoint.zero
     private var touchTime: CFTimeInterval = 0
+    
+    var durationValue: Double = 0
+    
+    var hasAddedDefense = false
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
@@ -30,7 +36,6 @@ public class GoalkeeperScenePage2: SKScene {
         super.init(size: size)
         
         configScene()
-        //        naiveDefense(goalkeeper: goalkeeper)
     }
     
     private func configScene() {
@@ -64,10 +69,6 @@ public class GoalkeeperScenePage2: SKScene {
         post = Post(scene: self)
         
         entityManager.add([player, ball, goalkeeper])
-    }
-    
-    private func addGoalkeeper() {
-        
     }
     
     private func setupNodes() {
@@ -145,6 +146,43 @@ public class GoalkeeperScenePage2: SKScene {
         ballNode.isHidden = true
     }
     
+    func moveGoalkeeper(duration: Double) {
+        hasAddedDefense = true
+        durationValue = duration
+    }
+    
+    func smartDefenseAlternative(xDelta: CGFloat, duration: Double) {
+        lockBall = true
+        
+        let goalkeeperNode = goalkeeper.spriteComponent.node
+        goalkeeperNode.removeAllActions()
+//        goalkeeperNode.position.x = self.frame.midX
+        var offset: CGFloat = 30
+        var distance = xDelta
+        
+        if distance < 0 {
+            offset = -offset
+            distance += offset
+        } else if distance == 0 {
+            offset = 0
+        } else {
+            distance += offset
+        }
+        
+        if distance > gkMaxDistance {
+            distance = gkMaxDistance
+        } else if distance < gkMinDistance {
+            distance = gkMinDistance
+        }
+        
+        let moveAction = SKAction.moveBy(x: distance, y: 0, duration: duration)
+        let reverseAction = moveAction.reversed()
+        let sequenceAction = SKAction.sequence([moveAction, reverseAction])
+        goalkeeperNode.run(sequenceAction) {
+            self.lockBall = false
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -159,8 +197,13 @@ public class GoalkeeperScenePage2: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
-            smartDefense(inScene: self, baseLocation: self.player.spriteComponent.node.position, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
+        if !lockBall {
+            shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
+                if self.hasAddedDefense {
+                    let xDelta = pos.x - self.touchLocation.x
+                    self.smartDefenseAlternative(xDelta: xDelta, duration: self.durationValue)
+                }
+            }
         }
     }
     

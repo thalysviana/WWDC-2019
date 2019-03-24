@@ -14,7 +14,6 @@ func moveGoalkeeper(duration: time) {
         controller.send(.floatingPoint(duration.rawValue))
     }
 }
-
 //#-end-hidden-code
 //:
 //: ## Improving our A.I

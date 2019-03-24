@@ -27,6 +27,8 @@ public class WallScenePage1: SKScene {
     
     private var lastUpdateTimeInterval = TimeInterval(0)
     
+    var hasAddWall = false
+    
     private var numberOfDefenders = 0
     
     override init(size: CGSize) {
@@ -44,6 +46,10 @@ public class WallScenePage1: SKScene {
         setupEntities()
         setupNodes()
         setupMasks()
+    }
+    
+    func setWallPosition() {
+        setupWall()
     }
     
     override public func didMove(to view: SKView) {
@@ -83,9 +89,9 @@ public class WallScenePage1: SKScene {
         ballNode.position = playerNode.position
         ballNode.isHidden = true
         
-        setupWall()
         post.setPostPosition(scene: self, fromPoint: CGPoint(x: frame.midX, y: goalAndAreaNode.position.y + 90))
         setupGoalLine()
+        entityManager.setupSpriteEntities()
     }
     
     private func setupMasks() {
@@ -128,6 +134,7 @@ public class WallScenePage1: SKScene {
         goalAndAreaNode.setScale(0.6)
         goalAndAreaNode.position = CGPoint(x: frame.midX, y: frame.maxY - 200)
     }
+    
     
     private func setupWall() {
         numberOfDefenders = getRandomNumberOfWallPlayers(inRange: minNumberDefenders...maxNumberDefenders)
@@ -179,7 +186,9 @@ public class WallScenePage1: SKScene {
         ballNode.position = playerNode.position
         ballNode.isHidden = true
         
-        recreateWall()
+        if hasAddWall {
+            recreateWall()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -197,7 +206,7 @@ public class WallScenePage1: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
-            smartDefense(inScene: self, baseLocation: self.player.spriteComponent.node.position, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
+            smartDefense(inScene: self, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
         }
     }
     
