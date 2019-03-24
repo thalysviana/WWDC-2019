@@ -21,7 +21,7 @@ public class WallScenePage1: SKScene {
     private var goalAndAreaNode: SKSpriteNode!
     
     private let initialPosition: CGPoint = .zero
-    private let durationValue = 0.9
+    private let durationValue = 0.7
     private var lockBall = false
     
     private var touchLocation = CGPoint.zero
@@ -193,7 +193,7 @@ public class WallScenePage1: SKScene {
         entityManager.add(defenders)
         
         var lastPosition: CGFloat = 0
-        let distanceOffset: CGFloat = 50
+        let distanceOffset: CGFloat = 45
         
         for i in 0..<defenders.count {
             let defenderNode = defenders[i].spriteComponent.node

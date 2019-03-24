@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5EA2E3BC2056F35A00416A35"
                BuildableName = "LiveViewTestApp.app"
                BlueprintName = "LiveViewTestApp"
-               ReferencedContainer = "container:PlaygroundBook.xcodeproj">
+               ReferencedContainer = "container:Free Kick Hero.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "5EA2E3BC2056F35A00416A35"
             BuildableName = "LiveViewTestApp.app"
             BlueprintName = "LiveViewTestApp"
-            ReferencedContainer = "container:PlaygroundBook.xcodeproj">
+            ReferencedContainer = "container:Free Kick Hero.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "5EA2E3BC2056F35A00416A35"
             BuildableName = "LiveViewTestApp.app"
             BlueprintName = "LiveViewTestApp"
-            ReferencedContainer = "container:PlaygroundBook.xcodeproj">
+            ReferencedContainer = "container:Free Kick Hero.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "5EA2E3BC2056F35A00416A35"
             BuildableName = "LiveViewTestApp.app"
             BlueprintName = "LiveViewTestApp"
-            ReferencedContainer = "container:PlaygroundBook.xcodeproj">
+            ReferencedContainer = "container:Free Kick Hero.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

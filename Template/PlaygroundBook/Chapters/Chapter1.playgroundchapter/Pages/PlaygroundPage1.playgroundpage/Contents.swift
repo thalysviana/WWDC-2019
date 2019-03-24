@@ -14,4 +14,7 @@ import SpriteKit
 //:
 //: Haha, chill out! This playground will guide and help you solve some of these questions 😁. Our goal here is to build a soccer free kick mini-game approaching some elements and mechanics presented in many mobile games.
 //:
+//: - Note:
+//: For better experience use in landscape mode.
+//:
 //: [Next: Collisions](@next)
