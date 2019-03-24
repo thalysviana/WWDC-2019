@@ -15,7 +15,7 @@
 	<key>SwiftVersion</key>
 	<string>$(SWIFT_VERSION)</string>
 	<key>Name</key>
-	<string>PlaygroundBookName</string>
+	<string>Free-Kick Hero!</string>
 	<key>Chapters</key>
 	<array>
 		<string>Chapter1.playgroundchapter</string>
@@ -24,5 +24,7 @@
 		<string>Chapter4.playgroundchapter</string>
 		<string>Chapter5.playgroundchapter</string>
 	</array>
+	<key>ImageReference</key>
+	<string>logo.png</string>
 </dict>
 </plist>

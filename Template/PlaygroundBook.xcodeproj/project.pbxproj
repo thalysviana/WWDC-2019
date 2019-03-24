@@ -22,6 +22,8 @@
 		770B1A6E2247B5A200A20D2B /* ChapterFivePageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B1A6D2247B5A200A20D2B /* ChapterFivePageOneViewController.swift */; };
 		770B1A712247C46600A20D2B /* thalys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 770B1A702247C46600A20D2B /* thalys.jpg */; };
 		770B1A722247C46600A20D2B /* thalys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 770B1A702247C46600A20D2B /* thalys.jpg */; };
+		770B1A742247DDDC00A20D2B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 770B1A732247DDDC00A20D2B /* logo.png */; };
+		770B1A752247DDDC00A20D2B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 770B1A732247DDDC00A20D2B /* logo.png */; };
 		771B79CE22453603009D037F /* ChapterThreePageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */; };
 		771B79D122455DF6009D037F /* GoalkeeperScenePage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B79D022455DF6009D037F /* GoalkeeperScenePage2.swift */; };
 		771B79D322455E51009D037F /* ChapterThreePageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B79D222455E51009D037F /* ChapterThreePageTwoViewController.swift */; };
@@ -162,6 +164,7 @@
 		5EF2F9B62054E6F900191409 /* Chapters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Chapters; sourceTree = "<group>"; };
 		770B1A6D2247B5A200A20D2B /* ChapterFivePageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterFivePageOneViewController.swift; sourceTree = "<group>"; };
 		770B1A702247C46600A20D2B /* thalys.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thalys.jpg; sourceTree = "<group>"; };
+		770B1A732247DDDC00A20D2B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		771B79CD22453603009D037F /* ChapterThreePageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterThreePageOneViewController.swift; sourceTree = "<group>"; };
 		771B79D022455DF6009D037F /* GoalkeeperScenePage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalkeeperScenePage2.swift; sourceTree = "<group>"; };
 		771B79D222455E51009D037F /* ChapterThreePageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterThreePageTwoViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +378,7 @@
 				77B808ED22464D0C00941A35 /* the_wall.png */,
 				770B1A702247C46600A20D2B /* thalys.jpg */,
 				773FB19D2242B0F30065657A /* goal&Area.png */,
+				770B1A732247DDDC00A20D2B /* logo.png */,
 				773FB16822418D3D0065657A /* ball.png */,
 				773FB1762241967D0065657A /* goalkeeper_front.png */,
 				773FB16522418D3C0065657A /* defender_front.png */,
@@ -594,6 +598,7 @@
 				773FB19B2242B0670065657A /* field_background.png in Resources */,
 				5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */,
 				773FB16B22418D3D0065657A /* defender_front.png in Resources */,
+				770B1A742247DDDC00A20D2B /* logo.png in Resources */,
 				773FB16D22418D3D0065657A /* soccer_field.png in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
 				770B1A712247C46600A20D2B /* thalys.jpg in Resources */,
@@ -610,6 +615,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770B1A752247DDDC00A20D2B /* logo.png in Resources */,
 				773FB16A22418D3D0065657A /* soccer_player_back.png in Resources */,
 				773FB16E22418D3D0065657A /* soccer_field.png in Resources */,
 				77B808EF22464D0C00941A35 /* the_wall.png in Resources */,
