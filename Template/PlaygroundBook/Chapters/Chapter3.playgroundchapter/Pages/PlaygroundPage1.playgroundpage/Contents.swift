@@ -16,7 +16,7 @@ func moveGoalkeeper(duration: time) {
 }
 //#-end-hidden-code
 //:
-//: ## Improving our A.I
+//: ## A not so smart goalkeeper...
 //:
 //: Look who showed up! We have a goalkeeper in our game now. However he doesn't do much yet. Except for standing still in the middle of the goal 😆.
 //:

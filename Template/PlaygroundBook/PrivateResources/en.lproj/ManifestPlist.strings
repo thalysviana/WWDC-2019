@@ -17,9 +17,9 @@ Contains English localizations of values in Manifest.plist files in the playgrou
 
 /* The localized name of the first page in the first chapter in the playground book. */
 "ChapterOnePageOneName" = "Let's build that game!";
-"ChapterTwoPageOneName" = "Collisions, collisions...";
-"ChapterTwoPageTwoName" = "Back to normal";
-"ChapterThreePageOneName" = "Naive defense";
-"ChapterThreePageTwoName" = "Increasing our goalkeeper's level!";
+"ChapterTwoPageOneName" = "Collisions";
+"ChapterTwoPageTwoName" = "Bug fix";
+"ChapterThreePageOneName" = "Weak defense";
+"ChapterThreePageTwoName" = "A smarter goalkeeper!";
 "ChapterFourPageOneName" = "The wall";
 "ChapterFivePageOneName" = "About me";
