@@ -14,7 +14,15 @@ import PlaygroundSupport
 public class ChapterThreePageOneViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
     
     private var gameView: SKView!
-    private var scene: SKScene!
+    private var scene: GoalkeeperScenePage1!
+    
+    lazy var mylabel: UILabel = {
+        let label = UILabel()
+        label.text = "Scene is nil"
+        label.isHidden = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +46,21 @@ public class ChapterThreePageOneViewController: UIViewController, PlaygroundLive
         gameView = SKView(frame: view.frame)
         view = gameView
         
+        view.addSubview(mylabel)
+        
+        NSLayoutConstraint.activate([
+            mylabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mylabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
         //        let scene = InitialScene(size: view.frame.size)
         let scene = GoalkeeperScenePage1(size: view.frame.size)
         scene.scaleMode = .aspectFill
         
-        gameView.ignoresSiblingOrder = true
-        gameView.showsPhysics = true
-        gameView.showsFPS = true
-        gameView.showsNodeCount = true
+        gameView.ignoresSiblingOrder = false
+        gameView.showsPhysics = false
+        gameView.showsFPS = false
+        gameView.showsNodeCount = false
         
         gameView.presentScene(scene)
         
@@ -70,5 +85,16 @@ public class ChapterThreePageOneViewController: UIViewController, PlaygroundLive
         // Implement this method to receive messages sent from the process running Contents.swift.
         // This method is *required* by the PlaygroundLiveViewMessageHandler protocol.
         // Use this method to decode any messages sent as PlaygroundValue values and respond accordingly.
+        let scene = gameView.scene as! GoalkeeperScenePage1
+        let goalkeeperNode = scene.goalkeeper.spriteComponent.node
+        switch message {
+        case .floatingPoint(let value):
+            goalkeeperNode.removeAllActions()
+            scene.moveGoalkeeper(duration: value)
+        default:
+            goalkeeperNode.removeAllActions()
+            scene.moveGoalkeeper(duration: 1.0)
+        }
+        
     }
 }

@@ -63,7 +63,6 @@
 		77B808DF2246329A00941A35 /* swipe_graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808DE2246329A00941A35 /* swipe_graphic.png */; };
 		77B808E02246329A00941A35 /* swipe_graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808DE2246329A00941A35 /* swipe_graphic.png */; };
 		77B808E222463B9C00941A35 /* ChapterFourPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B808E122463B9C00941A35 /* ChapterFourPageOneViewController.swift */; };
-		77B808E322463B9C00941A35 /* ChapterFourPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B808E122463B9C00941A35 /* ChapterFourPageOneViewController.swift */; };
 		77B808E622463C9800941A35 /* WallScenePage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B808E522463C9800941A35 /* WallScenePage1.swift */; };
 		77B808EE22464D0C00941A35 /* the_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808ED22464D0C00941A35 /* the_wall.png */; };
 		77B808EF22464D0C00941A35 /* the_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B808ED22464D0C00941A35 /* the_wall.png */; };
@@ -644,7 +643,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				773FB183224276950065657A /* AppDelegate.swift in Sources */,
-				77B808E322463B9C00941A35 /* ChapterFourPageOneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

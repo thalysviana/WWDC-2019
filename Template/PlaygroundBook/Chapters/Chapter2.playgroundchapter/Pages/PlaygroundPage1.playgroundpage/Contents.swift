@@ -22,7 +22,7 @@ func addCollisions(){
 //: Colliders are nothing more than components that define the physical form of an object. The object, in our case, would be the goal. And since there is no collider, the ball simply reacts to nothing.
 //:
 //: ## Ok, enough talk and let's practice!
-//: - Note:
+//: - Experiment:
 //: Add the method `addCollsiions()` below and click on run code to see what happens.
 //#-code-completion(everything, hide)
 //#-code-completion(identifier, show, addCollisions())

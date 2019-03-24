@@ -14,10 +14,12 @@ public class GoalkeeperScenePage1: SKScene {
     private var entityManager: EntityManager!
     private var player: Player!
     private var ball: Ball!
-    private var goalkeeper: Goalkeeper!
+    var goalkeeper: Goalkeeper!
     private var post: Post!
     private var goalLine: SKShapeNode!
     private var goalAndAreaNode: SKSpriteNode!
+    
+    var labelNode: SKLabelNode = SKLabelNode(text: "Deu bom! =D")
     
     private let initialPosition: CGPoint = .zero
     
@@ -29,8 +31,30 @@ public class GoalkeeperScenePage1: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
+        addChild(labelNode)
+        labelNode.zPosition = 3
+        labelNode.isHidden = true
+        labelNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
         configScene()
-        naiveDefense(goalkeeper: goalkeeper)
+    }
+    
+    func moveGoalkeeper(duration: Double) {
+        let goalkeeperNode = goalkeeper.spriteComponent.node
+        goalkeeperNode.position.x = self.frame.midX
+        
+        let initialMovement = SKAction.moveBy(x: gkMaxDistance, y: 0, duration: duration)
+        let rightBackMovement = initialMovement.reversed()
+        let leftMovement = SKAction.moveBy(x: gkMinDistance, y: 0, duration: duration)
+        let leftBackMovement = leftMovement.reversed()
+        let sequence = SKAction.sequence([initialMovement, rightBackMovement, leftMovement, leftBackMovement])
+        let repeatAction = SKAction.repeatForever(sequence)
+        
+        goalkeeperNode.run(repeatAction)
+    }
+    
+    func showLabelNode() {
+        labelNode.isHidden = false
     }
     
     private func configScene() {
