@@ -14,7 +14,7 @@ func setWallPosition() {
 //:
 //: Ok, it's finally time to finish our game. There is only one thing missing: _the wall_.
 //:
-//: In soccer, during free-kicks we always have the wall to make it difficult to score a goal. In our game we're gonna have a wall of two to four players. And their position will be decided randomly.
+//: In soccer, during free kicks we always have the wall to make it difficult to score a goal. In our game we're gonna have a wall of two to four players. And their position will be decided randomly.
 //:
 //: ## Adding the wall
 //:
@@ -41,5 +41,6 @@ func setWallPosition() {
 //: I hope you enjoyed and had fun during our journey. WWDC 19 is almost there and I'm very excited to see what awesome ideas we're gonna have this year.
 //:
 //: See you soon, my friend!
-
+//:
+//: [Next: About me](@next)
 

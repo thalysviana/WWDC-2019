@@ -21,7 +21,7 @@ public class WallScenePage1: SKScene {
     private var goalAndAreaNode: SKSpriteNode!
     
     private let initialPosition: CGPoint = .zero
-    private let durationValue = 0.7
+    private let durationValue = 0.9
     private var lockBall = false
     
     private var touchLocation = CGPoint.zero

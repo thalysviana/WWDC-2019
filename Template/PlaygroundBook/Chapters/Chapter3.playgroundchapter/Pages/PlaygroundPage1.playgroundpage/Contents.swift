@@ -48,5 +48,5 @@ moveGoalkeeper(duration: /*#-editable-code*/.halfSecond/*#-end-editable-code*/)
 //#-code-completion(identifier, show, .halfSecond, .oneSecond, .twoSecond)
 //:
 //: Haha! Our goalkeeper now moves by itself! Although it still not so hard to score... What shall we do then? 🧐
-//#-hidden-code
-//#-end-hidden-code
+//:
+//: [Next: A smarter goalkeeper!](@next)

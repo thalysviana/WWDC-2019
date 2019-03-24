@@ -36,6 +36,6 @@ func addCollisions(){
 //: - Note:
 //: The image above represent both the post and goal line colliders.
 //:
-//: But tt's all fine. We're gonna fix this in the next page.
-//#-hidden-code
-//#-end-hidden-code
+//: But is all fine. We're gonna fix this in the next page.
+//:
+//: [Next: Bug fix](@next)

@@ -53,4 +53,5 @@ moveGoalkeeper(duration: /*#-editable-code*/.halfSecond/*#-end-editable-code*/)
 //: You may have notice that depending on the duration selected our game can be very difficult. The trick is to shoot the ball near the goal edges. Give it a try!
 //:
 //: Wow! so many things! But there's just one more. Go to the next page and let's finish this game.
-
+//:
+//: [Next: The wall](@next)

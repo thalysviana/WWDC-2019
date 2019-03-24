@@ -29,11 +29,11 @@ func nullifyBallsVelocity() {
 //:
 //: ## Hands on!
 //:
-//: We already have the first ones. The only things missing now is add ball's physics.
+//: We already have the first ones. The only things missing now is add ball physics.
 //:
-//: We're going to do this by setting ball's velocity to null everytime it crosses the goal line. That way we can garantee that our ball will stop after we score a goal.
+//: We're going to do this by setting ball velocity to null everytime it crosses the goal line. That way we can garantee that our ball will stop after we score a goal.
 //: - Experiment:
-//:     1. Add the method `nullifyBallsVelocity()` right above `detectCollisions()` to assign a null vector to the balls velocity.
+//:     1. Add the method `nullifyBallsVelocity()` right below `detectCollisions()` to assign a null vector to the balls velocity.
 //:     2. Click on `run code` to see what happens.
 //:
 detectCollisions()
@@ -45,5 +45,4 @@ detectCollisions()
 //:
 //: Go to the next page to continue our game improvement.
 //:
-//#-hidden-code
-//#-end-hidden-code
+//: [Next: Weak defense](@next)

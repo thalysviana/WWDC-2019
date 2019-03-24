@@ -73,6 +73,9 @@ public class ChapterTwoPageOneViewController: UIViewController, PlaygroundLiveVi
         // Use this method to decode any messages sent as PlaygroundValue values and respond accordingly.
         
         guard case let .string(function) = message else { return }
+        
+        let scene = gameView.scene as! InitialScenePage1
+        
         if function == "addCollisions" {
             scene.addCollisions()
         }
