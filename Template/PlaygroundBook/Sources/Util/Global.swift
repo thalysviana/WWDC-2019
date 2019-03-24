@@ -23,7 +23,7 @@ let gkMinDistance: CGFloat = -120
 let gkMaxDistance: CGFloat = 120
 
 // MARK: = Wall parameters
-let maxNumberDefenders = 4
+let maxNumberDefenders = 3
 let minNumberDefenders = 2
 
 // MARK: - Scene commom mechanics
@@ -99,8 +99,8 @@ func getRandomNumberOfWallPlayers(inRange range: ClosedRange<Int>) -> Int {
 func generateWallPosition(inSceneFrame frame: CGRect) -> CGPoint {
     let minXOffset: CGFloat = 160
     let maxXOffset: CGFloat = 10
-    let minYOffset: CGFloat = 300
-    let maxYOffset: CGFloat = 350
+    let minYOffset: CGFloat = 280
+    let maxYOffset: CGFloat = 300
     
     let xRange = Int((frame.midX - minXOffset))...Int((frame.midX + maxXOffset))
     let yRange = Int((frame.maxY - maxYOffset))...Int((frame.maxY - minYOffset))

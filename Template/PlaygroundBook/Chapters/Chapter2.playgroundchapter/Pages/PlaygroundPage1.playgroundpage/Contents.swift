@@ -9,8 +9,6 @@ func addCollisions(){
     }
 }
 //#-end-hidden-code
-
-//#-end-hidden-code
 //: ## Before we start, take a look at our game
 //:
 //: _"Huh? What happened? The ball is crossing the goal and when it hit the post nothing happens!"._
@@ -28,10 +26,16 @@ func addCollisions(){
 //#-code-completion(identifier, show, addCollisions())
 /*#-editable-code Tap to write your code*//*#-end-editable-code*/
 //:
-//:Interesting, isn't it? Now the ball reacts to other objects in our game.
+//:Interesting. Now the ball reacts to something. We just can't see it 😅.
+//: ## The secret
+//: ![alt text](collisions_explanation.jpeg)
 //:
-//: However, you may have noticed a new problem. The ball is bouncing in our direction every time we throw it towards the goal.
 //:
-//: But no problem, we'll fix this in the next page 🙂
+//:Actually what is happening is that we have colliders in the edges of the goal and right behind the goal line. These colliders are important to identify if the ball hit the post or if it crossed the goal line.
+//:
+//: - Note:
+//: The image above represent both the post and goal line colliders.
+//:
+//: But tt's all fine. We're gonna fix this in the next page.
 //#-hidden-code
 //#-end-hidden-code

@@ -44,9 +44,9 @@ public class ChapterTwoPageTwoViewController: UIViewController, PlaygroundLiveVi
         scene.scaleMode = .aspectFill
         
         gameView.ignoresSiblingOrder = true
-        gameView.showsPhysics = true
-        gameView.showsFPS = true
-        gameView.showsNodeCount = true
+        gameView.showsPhysics = false
+        gameView.showsFPS = false
+        gameView.showsNodeCount = false
         
         gameView.presentScene(scene)
         

@@ -21,6 +21,8 @@ public class WallScenePage1: SKScene {
     private var goalAndAreaNode: SKSpriteNode!
     
     private let initialPosition: CGPoint = .zero
+    private let durationValue = 0.7
+    private var lockBall = false
     
     private var touchLocation = CGPoint.zero
     private var touchTime: CFTimeInterval = 0
@@ -105,6 +107,38 @@ public class WallScenePage1: SKScene {
         
         ballBody.collisionBitMask = (CategoryMask.goalkeeper | CategoryMask.fieldEdge | ~CategoryMask.goalLine)
         ballBody.contactTestBitMask = (CategoryMask.goalkeeper | CategoryMask.fieldEdge | CategoryMask.goalLine)
+    }
+    
+    func smartDefenseAlternative(xDelta: CGFloat, duration: Double) {
+        lockBall = true
+        
+        let goalkeeperNode = goalkeeper.spriteComponent.node
+        goalkeeperNode.removeAllActions()
+        //        goalkeeperNode.position.x = self.frame.midX
+        var offset: CGFloat = 30
+        var distance = xDelta
+        
+        if distance < 0 {
+            offset = -offset
+            distance += offset
+        } else if distance == 0 {
+            offset = 0
+        } else {
+            distance += offset
+        }
+        
+        if distance > gkMaxDistance {
+            distance = gkMaxDistance
+        } else if distance < gkMinDistance {
+            distance = gkMinDistance
+        }
+        
+        let moveAction = SKAction.moveBy(x: distance, y: 0, duration: duration)
+        let reverseAction = moveAction.reversed()
+        let sequenceAction = SKAction.sequence([moveAction, reverseAction])
+        goalkeeperNode.run(sequenceAction) {
+            self.lockBall = false
+        }
     }
     
     private func setupGoalLine() {
@@ -205,8 +239,11 @@ public class WallScenePage1: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
-            smartDefense(inScene: self, curLocation: pos, prevLocation: self.touchLocation, goalkeeper: self.goalkeeper)
+        if !lockBall {
+            shootBall(inScene: self, atPoint: pos, touchTime: touchTime, touchLocation: touchLocation, player: player, ball: ball) { [unowned self] in
+                let xDelta = pos.x - self.touchLocation.x
+                self.smartDefenseAlternative(xDelta: xDelta, duration: self.durationValue)
+            }
         }
     }
     

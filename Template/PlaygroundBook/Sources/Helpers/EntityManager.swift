@@ -76,6 +76,9 @@ public final class EntityManager {
         entities.forEach { entity in
             if let entitySpriteNode = entity.component(ofType: SpriteComponent.self)?.node {
                 entitySpriteNode.zPosition = 3
+                if entity is Defender {
+                    entitySpriteNode.zPosition = 4
+                }
                 if !(entity is Ball) {
                     entitySpriteNode.setScale(0.2)
                 } else {

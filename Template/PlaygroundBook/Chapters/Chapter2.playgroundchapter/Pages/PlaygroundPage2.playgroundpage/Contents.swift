@@ -43,7 +43,7 @@ detectCollisions()
 //:
 //: Yeah! finally things are starting to come back to normal.
 //:
-//: Go to the next chapter to continue our game improvement.
+//: Go to the next page to continue our game improvement.
 //:
 //#-hidden-code
 //#-end-hidden-code

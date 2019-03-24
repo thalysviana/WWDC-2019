@@ -4,7 +4,7 @@ import SpriteKit
 
 enum time: Double {
     case halfSecond = 0.5
-    case playable = 0.6
+    case playable = 0.9
     case oneSecond = 1.0
     case twoSecond = 2.0
 }
